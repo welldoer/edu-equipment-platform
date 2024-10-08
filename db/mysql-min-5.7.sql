@@ -3658,6 +3658,25 @@ CREATE TABLE `signing_of_security_responsibility` (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- --------------------------------------------------------------
+-- Table structure for education_resource_deployment
+-- --------------------------------------------------------------
+DROP TABLE IF EXISTS `education_resource_deployment`;
+CREATE TABLE `education_resource_deployment` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `identification_code` varchar(18) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
+  `upload_date` date NOT NULL COMMENT '上传日期',
+  `upload_file` varchar(120) COLLATE utf8mb4_general_ci NOT NULL COMMENT '上传文件',
+  `memo` longtext COLLATE utf8mb4_general_ci COMMENT '备注',
+  `reported` int DEFAULT NULL COMMENT '上报状态',
+  `create_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime DEFAULT NULL COMMENT '更新日期',
+  `sys_org_code` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '所属部门',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- --------------------------------------------------------------
 -- Dict increase data
 -- --------------------------------------------------------------
 INSERT INTO `sys_dict` (id,dict_name,dict_code,description,del_flag,create_by,create_time,update_by,update_time,`type`,tenant_id,low_app_id) VALUES
@@ -3751,6 +3770,7 @@ INSERT INTO sys_permission (id, parent_id, name, url, component, is_route, compo
     ('1666282632293515265',	'',	'教育装备管理',	'/edu/equipment',	'layouts/RouteView',	1,	'',	NULL,	0,	NULL,	'0',	0.40,	0,	'ant-design:calculator-outlined',	0,	0,	0,	0,	NULL,	'admin',	'2023-06-07 11:15:12',	'admin',	'2023-09-07 20:24:38',	0,	0,	NULL,	0),
     ('1714103540890349570',	'1666282632293515265',	'教学装备配置',	'/edu/register',	'layouts/RouteView',	1,	'',	NULL,	1,	NULL,	'0',	9.00,	0,	'ant-design:form-outlined',	0,	0,	0,	0,	NULL,	'admin',	'2023-10-17 10:18:25',	'admin',	'2023-10-17 10:24:17',	0,	0,	NULL,	0),
     ('1714103540890349576',	'1666282632293515265',	'化学危险品管理',	'/edu/hazard',	'layouts/RouteView',	1,	'',	NULL,	1,	NULL,	'0',	9.20,	0,	'ant-design:fire-filled',	0,	0,	0,	0,	NULL,	'admin',	'2023-10-17 10:18:25',	'admin',	'2023-10-17 10:24:17',	0,	0,	NULL,	0),
+    ('1666282632293515286',	'',	'教育资源配置',	'/edu/depolypment',	'layouts/RouteView',	1,	'',	NULL,	0,	NULL,	'0',	0.50,	0,	'ant-design:calculator-outlined',	0,	0,	0,	0,	NULL,	'admin',	'2024-10-08 09:15:12',	'admin',	'2023-09-07 20:24:38',	0,	0,	NULL,	0),
     ('2023091403567720490',	'',	'填报控制',	'/edu/foudation/fillingControlList',	'edu/foudation/FillingControlList',	1,	NULL,	NULL,	0,	NULL,	'1',	0.20,	0,	'ant-design:lock-outlined',	0,	0,	0,	0,	NULL,	'admin',	'2023-09-14 15:56:49',	'admin',	'2023-09-14 16:55:01',	0,	0,	'1',	0);
 
 INSERT INTO sys_permission(id, parent_id, name, url, component, component_name, redirect, menu_type, perms, perms_type, sort_no, always_show, icon, is_route, is_leaf, keep_alive, hidden, hide_tab, description, status, del_flag, rule_flag, create_by, create_time, update_by, update_time, internal_or_external) VALUES
@@ -3777,6 +3797,7 @@ INSERT INTO sys_permission(id, parent_id, name, url, component, component_name, 
     ('2023112012411830230', '1714103540890349570', '初中体育', '/edu/register/jsSportEquipmentFileList', 'edu/register/JsSportEquipmentFileList', NULL, NULL, 0, NULL, '1', 2.70, 0, 'ant-design:project-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2023-11-20 12:41:23', NULL, NULL, 0)
    ,('2023112211067320490', '1714103540890349576', '安全月报表', '/edu/hazard/monthlyDocOfChemicalHazardsList', 'edu/hazard/MonthlyDocOfChemicalHazardsList', NULL, NULL, 1, NULL, '1', 2.00, 0, 'ant-design:inbox-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2023-11-22 11:06:49', NULL, NULL, 0)
    ,('2023112905055350290', '1714103540890349576', '安全责任书', '/edu/hazard/signingOfSecurityResponsibilityList', 'edu/hazard/SigningOfSecurityResponsibilityList', NULL, NULL, 1, NULL, '1', 1.00, 0, 'ant-design:account-book-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2023-11-29 17:05:29', NULL, NULL, 0)
+   ,('2024100815260010010', '1666282632293515286', '资源配置统计', '/edu/deploypment/infoOfDeploymentList', 'edu/deployment/InfoOfDeploymentList', NULL, NULL, 1, NULL, '1', 1.00, 0, 'ant-design:account-book-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2024-10-08 17:05:29', NULL, NULL, 0)
     ;
 
 INSERT INTO sys_permission(id, parent_id, name, url, component, is_route, component_name, redirect, menu_type, perms, perms_type, sort_no, always_show, icon, is_leaf, keep_alive, hidden, hide_tab, description, create_by, create_time, update_by, update_time, del_flag, rule_flag, status, internal_or_external) VALUES
@@ -4018,6 +4039,19 @@ INSERT INTO sys_permission(id, parent_id, name, url, component, is_route, compon
     ('2023112905055360300',	'2023112905055350290', '模板下载_安全责任书签订', NULL, NULL, 0, NULL, NULL, 2, 'edu.hazard:signing_of_security_responsibility:downloadTemplate', '1', NULL, 0,	NULL, 1, 0,	0, 0, NULL, 'admin', '2023-11-29 18:00:26',	NULL,	NULL,	0,	0,	'1',	0)
     ;
 
+INSERT INTO sys_permission(id, parent_id, name, url, component, is_route, component_name, redirect, menu_type, perms, perms_type, sort_no, always_show, icon, is_leaf, keep_alive, hidden, hide_tab, description, create_by, create_time, update_by, update_time, del_flag, rule_flag, status, internal_or_external) VALUES
+    ('2024100815260010011', '2024100815260010010', '添加资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:add', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2024-10-08 17:05:29', NULL, NULL, 0, 0, '1', 0),
+    ('2024100815260010012', '2024100815260010010', '编辑资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:edit', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2024-10-08 17:05:29', NULL, NULL, 0, 0, '1', 0),
+    ('2024100815260010013', '2024100815260010010', '删除资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:delete', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2024-10-08 17:05:29', NULL, NULL, 0, 0, '1', 0),
+    ('2024100815260010014', '2024100815260010010', '批量删除资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:deleteBatch', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2024-10-08 17:05:29', NULL, NULL, 0, 0, '1', 0),
+    ('2024100815260010015', '2024100815260010010', '导出excel_资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:exportXls', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2024-10-08 17:05:29', NULL, NULL, 0, 0, '1', 0),
+    ('2024100815260010016', '2024100815260010010', '导入excel_资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:importExcel', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2024-10-08 17:05:29', NULL, NULL, 0, 0, '1', 0),
+    ('2024100815260010017',	'2024100815260010010', '上报资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:report',	'1', NULL, 0, NULL,	1,	0,	0,	0,	NULL,	'admin',	'2024-10-08 17:57:17',	NULL,	NULL,	0,	0,	'1',	0),
+    ('2024100815260010018',	'2024100815260010010', '退回资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:revoke',	'1', NULL, 0, NULL,	1,	0,	0,	0,	NULL,	'admin',	'2024-10-08 17:58:11',	NULL,	NULL,	0,	0,	'1',	0),
+    ('2024100815260010019',	'2024100815260010010', '模板上传_资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:uploadTemplate',	'1', NULL, 0, NULL,	1, 0, 0, 0,	NULL, 'admin', '2024-10-08 17:59:30', NULL,	NULL,	0,	0,	'1',	0),
+    ('2024100815260010020',	'2024100815260010010', '模板下载_资源配置统计', NULL, NULL, 0, NULL, NULL, 2, 'edu.deployment:info_of_deployment:downloadTemplate', '1', NULL, 0,	NULL, 1, 0,	0, 0, NULL, 'admin', '2024-10-08 18:00:26',	NULL,	NULL,	0,	0,	'1',	0)
+    ;
+
 -- 角色权限：系统管理员
 INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_ids`, `operate_date`, `operate_ip`) VALUES
      ('1666340189662081026',	'f6817f48af4fb3af11b9e8bf182f618b',	'1666281667909779458',	NULL,	'2023-06-07 15:03:55',	'127.0.0.1'),               -- 教育信息化
@@ -4077,6 +4111,18 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
      ('1714574026749460482',	'f6817f48af4fb3af11b9e8bf182f618b',	'2023101809294300148',	NULL,	'2023-10-18 17:27:58',	'127.0.0.1'),
      ('1716713559892828162',	'f6817f48af4fb3af11b9e8bf182f618b',	'2023101809294300149',	NULL,	'2023-10-24 15:09:42',	'127.0.0.1'),
      ('1716713559943159809',	'f6817f48af4fb3af11b9e8bf182f618b',	'2023101809294300150',	NULL,	'2023-10-24 15:09:42',	'127.0.0.1')
+    ,('1843587714021236738',	'f6817f48af4fb3af11b9e8bf182f618b',	'1666282632293515286',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),               -- 教育资源配置
+     ('1843587714042208257',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010010',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),               -- 资源配置统计
+     ('1843587714042208258',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010011',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),
+     ('1843587714042208259',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010012',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),
+     ('1843587714046402561',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010013',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),
+     ('1843587714046402562',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010014',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),
+     ('1843587714050596866',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010015',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),
+     ('1843587714050596867',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010016',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),
+     ('1843587714050596868',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010017',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),
+     ('1843587714054791169',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010018',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),
+     ('1843587714054791170',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010019',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1'),
+     ('1843587714054791171',	'f6817f48af4fb3af11b9e8bf182f618b',	'2024100815260010020',	NULL,	'2024-10-08 17:42:18',	'127.0.0.1')
     ,('1725058272433672194',	'f6817f48af4fb3af11b9e8bf182f618b',	'1443390062919208961',	NULL,	'2023-11-16 15:48:37',	'127.0.0.1'),               -- 消息中心
      ('1725058272454643713',	'f6817f48af4fb3af11b9e8bf182f618b',	'1443391584864358402',	NULL,	'2023-11-16 15:48:37',	'127.0.0.1'),               -- 消息模板
      ('1725058272479809537',	'f6817f48af4fb3af11b9e8bf182f618b',	'1439542701152575489',	NULL,	'2023-11-16 15:48:37',	'127.0.0.1')                -- 我的消息
