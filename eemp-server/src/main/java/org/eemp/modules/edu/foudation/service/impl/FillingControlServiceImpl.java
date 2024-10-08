@@ -88,6 +88,9 @@ public class FillingControlServiceImpl extends ServiceImpl<FillingControlMapper,
             case "signing_of_security_responsibility":
                 fillingControlType = "04";
                 break;
+            case "info_of_deployment":
+                fillingControlType = "05";
+                break;
             default:
                 fillingControlType = "";
         }
