@@ -80,6 +80,14 @@ public class LoginController {
 		Result<JSONObject> result = new Result<JSONObject>();
 		String username = sysLoginModel.getUsername();
 		String password = sysLoginModel.getPassword();
+
+		// 若输入用户名实际为手机号，则查找成功后替换为用户名
+		if (username.matches("^1[3-9]\\d{9}$")) {
+			SysUser sysUser = sysUserService.getUserByPhone(username);
+			if (sysUser != null)
+				username = sysUser.getUsername();
+		}
+
 		//update-begin-author:taoyan date:2022-11-7 for: issues/4109 平台用户登录失败锁定用户
 		if(isLoginFailOvertimes(username)){
 			return result.error500("该用户登录失败次数过多，请于10分钟后再次登录！");
