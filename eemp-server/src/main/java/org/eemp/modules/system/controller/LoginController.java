@@ -188,6 +188,7 @@ public class LoginController {
 			//update-end---author:scott ---date::2022-06-20  for：vue3前端，支持自定义首页--------------
 			
 			obj.put("userInfo",sysUser);
+			obj.put("roles", sysUserService.getUserRolesSet(username));
 			obj.put("sysAllDictItems", sysDictService.queryAllDictItems());
 			result.setResult(obj);
 			result.success("");
