@@ -195,241 +195,373 @@ export const formSchema: FormSchema[] = [
     label: '物理实验室间数',
     field: 'physicsLabRoomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入物理实验室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '物理实验室面积',
     field: 'physicsLabArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入物理实验室面积!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '物理实验室实验桌(张)',
     field: 'physicsLabBenchNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入物理实验室实验桌(张)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '物理器材、准备室间数',
     field: 'physicsEquipmentRoomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入物理器材、准备室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '物理器材、准备室面积',
     field: 'physicsEquipmentRoomArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入物理器材、准备室面积!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '物理器材、准备室仪器柜(口)',
     field: 'physicsEquipmentCabinetNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入物理器材、准备室仪器柜(口)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '物理器材、准备室准备台(个)',
     field: 'physicsEquipmentBenchNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入物理器材、准备室准备台(个)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '化学（生化）实验室间数',
     field: 'biochemistryLabRoomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入化学（生化）实验室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '化学（生化）实验室面积',
     field: 'biochemistryLabArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入化学（生化）实验室面积!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '化学（生化）实验室实验桌(张)',
     field: 'biochemistryLabBenchNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入化学（生化）实验室实验桌(张)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '化学（生化）器材、准备室间数',
     field: 'biochemistryEquipRoomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入化学（生化）器材、准备室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '化学（生化）器材、准备室面积',
     field: 'biochemistryEquipRoomArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入化学（生化）器材、准备室面积!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '化学（生化）器材、准备室仪器柜(口)',
     field: 'biochemistryEquipCabinetNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入化学（生化）器材、准备室仪器柜(口)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '化学（生化）器材、准备室准备台(个)',
     field: 'biochemistryEquipBenchNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入化学（生化）器材、准备室准备台(个)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '科学实验室间数',
     field: 'scienceLabRoomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入科学实验室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '科学实验室面积',
     field: 'scienceLabArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入科学实验室面积!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '科学实验室实验桌(张)',
     field: 'scienceLabBenchNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入科学实验室实验桌(张)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '科学器材、准备室间数',
     field: 'scienceEquipmentRoomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入科学器材、准备室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '科学器材、准备室面积',
     field: 'scienceEquipmentRoomArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入科学器材、准备室面积!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '科学器材、准备室仪器柜(口)',
     field: 'scienceEquipmentCabinetNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入科学器材、准备室仪器柜(口)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '科学器材、准备室准备台(个)',
     field: 'scienceEquipmentBenchNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入科学器材、准备室准备台(个)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '危化品专柜数量(口)',
     field: 'hazardousChemicalCabinetNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入危化品专柜数量(口)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '专职实验员人数',
     field: 'fullTimeLabTechnicianNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入专职实验员人数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '兼职实验员人数',
     field: 'partTimeLabTechnicianNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入兼职实验员人数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
 	// TODO 主键隐藏字段，目前写死为ID
 	{

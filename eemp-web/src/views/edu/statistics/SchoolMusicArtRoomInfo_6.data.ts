@@ -170,181 +170,271 @@ export const formSchema: FormSchema[] = [
     label: '音乐器材室间数',
     field: 'musicEquipmentRoomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入音乐器材室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '音乐器材室面积（m2）',
     field: 'musicEquipmentRoomArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入音乐器材室面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '音乐器材室器材件数',
     field: 'musicEquipmentNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入音乐器材室器材件数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '音乐教室间数',
     field: 'musicClassroomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入音乐教室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '音乐教室面积（m2）',
     field: 'musicClassroomArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入音乐教室面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '舞蹈室间数',
     field: 'musicDanceRoomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入舞蹈室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '舞蹈室面积（m2）',
     field: 'musicDanceRoomArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入舞蹈室面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '专职音乐教师（人）',
     field: 'fullTimeMusicTeacherNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入专职音乐教师（人）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '兼职音乐教师（人）',
     field: 'partTimeMusicTeacherNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入兼职音乐教师（人）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '美术教室间数',
     field: 'artClassroomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入美术教室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '美术教室面积（m2）',
     field: 'artClassroomArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入美术教室面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '美术器材室间数',
     field: 'artEquipmentNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入美术器材室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '美术器材室面积（m2）',
     field: 'artEquipmentArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入美术器材室面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '专职美术教师（人）',
     field: 'fullTimeArtTeacherNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入专职美术教师（人）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '兼职美术教师（人）',
     field: 'partTimeArtTeacherNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入兼职美术教师（人）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '书法教室间数',
     field: 'calligraphyClassroomNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入书法教室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '书法教室面积（m2）',
     field: 'calligraphyClassroomArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入书法教室面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '书法教室桌椅数（张）',
     field: 'calligraphyDeskNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入书法教室桌椅数（张）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '是否配备书法软件系统',

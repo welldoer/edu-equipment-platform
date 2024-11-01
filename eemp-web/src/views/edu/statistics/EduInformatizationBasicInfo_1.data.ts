@@ -121,61 +121,103 @@ export const formSchema: FormSchema[] = [
     label: '任课教师总数（人）',
     field: 'teacherCount',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入任课教师总数（人）!'},
-          ];
+    componentProps: {
+       min: 0,
+       precision: 0,  // 设置为0表示只能输入整数
+       step: 1,       // 步进值为1
+       parser: (value: string) => {
+         // 将输入值转换为非负整数
+         return Math.max(0, parseInt(value) || 0);
+       }
      },
+     rules: [
+       { required: true, message: '请输入数量' },
+     ],
   },
   {
     label: '学生总数（人）',
     field: 'studentCount',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入学生总数（人）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '教室（含功能室）总数（间）',
     field: 'roomCount',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入教室（含功能室）总数（间）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '班级教室总数（间）',
     field: 'classroomCount',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入班级教室总数（间）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '学生课桌椅可用数（套）',
     field: 'studentDeskCount',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入学生课桌椅可用数（套）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '已入网教室数（间）',
     field: 'connectedRoomCount',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入已入网教室数（间）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '是否建设网络中心机房',
@@ -194,11 +236,12 @@ export const formSchema: FormSchema[] = [
     label: '学校资源库教学资源容量（GB）',
     field: 'teachingResourceCapacity',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入学校资源库教学资源容量（GB）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
 	// TODO 主键隐藏字段，目前写死为ID
 	{

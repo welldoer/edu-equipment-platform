@@ -165,121 +165,205 @@ export const formSchema: FormSchema[] = [
     label: '班级数',
     field: 'classesNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入班级数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '学生计算机室现有计算机总数',
     field: 'studentComputerNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入学生计算机室现有计算机总数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '学生计算机室2018年前台配备数',
     field: 'studentComputerNumBef2018',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入学生计算机室2018年前台配备数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '学生计算机室2018年后配备数',
     field: 'studentComputerNumAft2018',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入学生计算机室2018年后配备数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '教师办公计算机总台数',
     field: 'teacherComputerNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入教师办公计算机总台数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '教师办公计算机2015年及以前配备台数',
     field: 'teacherComputerNumBef2016',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入教师办公计算机2015年及以前配备台数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '教师办公计算机2016年至2019年配备数量',
     field: 'teacherComputerNum20162019',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入教师办公计算机2016年至2019年配备数量!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '教师办公计算机2020年及以后配备数量',
     field: 'teacherComputerNumAft2020',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入教师办公计算机2020年及以后配备数量!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '“班班通”智能触控一体机数',
     field: 'allInOneMachineNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入“班班通”智能触控一体机数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '“班班通”电脑＋电视机',
     field: 'computerPlusTvNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入“班班通”电脑＋电视机!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '“班班通”视频展示台数量',
     field: 'videoVisualizerNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入“班班通”视频展示台数量!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '无班班通设备班级数',
     field: 'classNumWithoutEquip',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入无班班通设备班级数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '校园网主干线是否达到千兆(是或否)',
@@ -311,41 +395,69 @@ export const formSchema: FormSchema[] = [
     label: '校园网无线AP数量',
     field: 'wirelessApNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入校园网无线AP数量!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '校园监控摄像头数',
     field: 'campusSurveillanceCameraNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入校园监控摄像头数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '校园监控硬盘录像机数',
     field: 'campusSurveillanceDvrNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入校园监控硬盘录像机数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '校园监控留存时间(天)',
     field: 'surveillanceRetentionTime',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入校园监控留存时间(天)!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
 	// TODO 主键隐藏字段，目前写死为ID
 	{

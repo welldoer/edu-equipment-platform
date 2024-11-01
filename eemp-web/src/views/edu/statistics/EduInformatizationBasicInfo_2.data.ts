@@ -270,31 +270,46 @@ export const formSchema: FormSchema[] = [
     label: '本年设备维护投入资金（万元）',
     field: 'equipmentFundsThisYear',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入本年设备维护投入资金（万元）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '信息技术专职教师人数',
     field: 'fullTimeTeacherNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入信息技术专职教师人数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '信息技术兼职教师人数',
     field: 'partTimeTeacherNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入信息技术兼职教师人数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
 	// TODO 主键隐藏字段，目前写死为ID
 	{

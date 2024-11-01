@@ -150,51 +150,74 @@ export const formSchema: FormSchema[] = [
     label: '藏书室间数',
     field: 'libraryNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入藏书室间数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '藏书室总面积（m2）',
     field: 'libraryArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入藏书室总面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '阅览室面积（m2）',
     field: 'readingRoomArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入阅览室面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '阅览室阅览桌（张）',
     field: 'readingRoomTableNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入阅览室阅览桌（张）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '藏书册数',
     field: 'bookNum',
-    component: 'Input',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入藏书册数!'},
-          ];
-     },
+    component: 'InputNumber',
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '是否配备图书管理软件',
@@ -213,11 +236,12 @@ export const formSchema: FormSchema[] = [
     label: '生均册数',
     field: 'averageBooksPerStudent',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入生均册数!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '特色读书场所一名称',
@@ -233,21 +257,29 @@ export const formSchema: FormSchema[] = [
     label: '特色读书场所一数量',
     field: 'firstFeaturedPlaceNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入特色读书场所一数量!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '特色读书场所一总面积（m2）',
     field: 'firstFeaturedPlaceArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入特色读书场所一总面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '特色读书场所二名称',
@@ -263,21 +295,29 @@ export const formSchema: FormSchema[] = [
     label: '特色读书场所二数量',
     field: 'secondFeaturedPlaceNum',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入特色读书场所二数量!'},
-          ];
-     },
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '特色读书场所二总面积（m2）',
     field: 'secondFeaturedPlaceArea',
     component: 'InputNumber',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入特色读书场所二总面积（m2）!'},
-          ];
-     },
+    componentProps: {
+      min: 0,  // 设置最小值为0
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
   },
   {
     label: '专职管理员姓名',
