@@ -13,12 +13,26 @@
     // Emits声明
     const emit = defineEmits(['register','success']);
     const isUpdate = ref(true);
+    // 定义统一的表单布局配置
+    const formProps = {
+        labelCol: { 
+        span: 15,
+        style: {
+            textAlign: 'right',
+            paddingRight: '10px'
+        }
+        },
+        wrapperCol: {
+            span: 8 
+        }
+    };
     //表单配置
     const [registerForm, {setProps,resetFields, setFieldsValue, validate}] = useForm({
         //labelWidth: 150,
         schemas: formSchema,
         showActionButtonGroup: false,
-        baseColProps: {span: 24}
+        baseColProps: {span: 12},
+        ...formProps,   // 应用统一的布局配置
     });
     //表单赋值
     const [registerModal, {setModalProps, closeModal}] = useModalInner(async (data) => {
