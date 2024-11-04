@@ -168,6 +168,61 @@ export const searchFormSchema: FormSchema[] = [
       colProps: {span: 6},
  	},
 ];
+// 可以定义权限映射关系
+const FIELD_PERMISSION_MAP = {
+  'science': ['admin', 'primary_school'],  // 小学 科学
+  'physics': ['admin', 'junior_school'], // 初中 物理
+  'biochemistry': ['admin', 'junior_school'], // 初中 化生
+};
+
+// 检查权限的工具函数
+function hasFieldPermission(fieldCode: string): boolean {
+  const userStore = useUserStoreWithOut();
+  const roles = userStore.getRoleList || [];
+  return roles.some(role => FIELD_PERMISSION_MAP[fieldCode]?.includes(role));
+}
+
+// 定义默认值映射
+const DEFAULT_VALUES = {
+  physicsLabRoomNum: 0,
+  physicsLabArea: 0,
+  physicsLabBenchNum: 0,
+  physicsEquipmentRoomNum: 0,
+  physicsEquipmentRoomArea: 0,
+  physicsEquipmentCabinetNum: 0,
+  physicsEquipmentBenchNum: 0,
+  biochemistryLabRoomNum: 0,
+  biochemistryLabArea: 0,
+  biochemistryLabBenchNum: 0,
+  biochemistryEquipRoomNum: 0,
+  biochemistryEquipRoomArea: 0,
+  biochemistryEquipCabinetNum: 0,
+  biochemistryEquipBenchNum: 0,
+  scienceLabRoomNum: 0,
+  scienceLabArea: 0,
+  scienceLabBenchNum: 0,
+  scienceEquipmentRoomNum: 0,
+  scienceEquipmentRoomArea: 0,
+  scienceEquipmentCabinetNum: 0,
+  scienceEquipmentBenchNum: 0,
+} as const;
+
+// 导出处理函数供Modal使用
+export function processFormData(values: Recordable) {
+  const result = { ...values };
+  
+  // 遍历所有字段，检查权限并设置默认值
+  // Object.keys(FIELD_PERMISSION_MAP).forEach(field => {
+  //   if (!hasFieldPermission(field) && !(field in result)) {
+  Object.keys(DEFAULT_VALUES).forEach(field => {
+    if (!(field in result)) {
+      result[field] = DEFAULT_VALUES[field];
+    }
+  });
+  
+  return result;
+}
+
 //表单数据
 export const formSchema: FormSchema[] = [
   {
@@ -213,6 +268,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('physics'),
   },
   {
     label: '物理实验室面积',
@@ -224,6 +280,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('physics'),
   },
   {
     label: '物理实验室实验桌(张)',
@@ -241,6 +298,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('physics'),
   },
   {
     label: '物理器材、准备室间数',
@@ -258,6 +316,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('physics'),
   },
   {
     label: '物理器材、准备室面积',
@@ -269,6 +328,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('physics'),
   },
   {
     label: '物理器材、准备室仪器柜(口)',
@@ -286,6 +346,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('physics'),
   },
   {
     label: '物理器材、准备室准备台(个)',
@@ -303,6 +364,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('physics'),
   },
   {
     label: '化学（生化）实验室间数',
@@ -320,6 +382,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('biochemistry'),
   },
   {
     label: '化学（生化）实验室面积',
@@ -331,6 +394,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('biochemistry'),
   },
   {
     label: '化学（生化）实验室实验桌(张)',
@@ -348,6 +412,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('biochemistry'),
   },
   {
     label: '化学（生化）器材、准备室间数',
@@ -365,6 +430,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('biochemistry'),
   },
   {
     label: '化学（生化）器材、准备室面积',
@@ -376,6 +442,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('biochemistry'),
   },
   {
     label: '化学（生化）器材、准备室仪器柜(口)',
@@ -393,6 +460,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('biochemistry'),
   },
   {
     label: '化学（生化）器材、准备室准备台(个)',
@@ -410,6 +478,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('biochemistry'),
   },
   {
     label: '科学实验室间数',
@@ -427,6 +496,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('science'),
   },
   {
     label: '科学实验室面积',
@@ -438,6 +508,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('science'),
   },
   {
     label: '科学实验室实验桌(张)',
@@ -455,6 +526,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('science'),
   },
   {
     label: '科学器材、准备室间数',
@@ -472,6 +544,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('science'),
   },
   {
     label: '科学器材、准备室面积',
@@ -483,6 +556,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('science'),
   },
   {
     label: '科学器材、准备室仪器柜(口)',
@@ -500,6 +574,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('science'),
   },
   {
     label: '科学器材、准备室准备台(个)',
@@ -517,6 +592,7 @@ export const formSchema: FormSchema[] = [
     rules: [
       { required: true, message: '请输入数量' },
     ],
+    ifShow: () => hasFieldPermission('science'),
   },
   {
     label: '危化品专柜数量(口)',

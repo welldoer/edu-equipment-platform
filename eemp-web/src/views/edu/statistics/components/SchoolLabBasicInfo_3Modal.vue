@@ -11,7 +11,7 @@
     import {ref, computed, unref} from 'vue';
     import {BasicModal, useModalInner} from '/@/components/Modal';
     import {BasicForm, useForm} from '/@/components/Form/index';
-    import {formSchema} from '../SchoolLabBasicInfo_3.data';
+    import {formSchema, processFormData} from '../SchoolLabBasicInfo_3.data';
     import {saveOrUpdate} from '../SchoolLabBasicInfo_3.api';
     import { Divider } from 'ant-design-vue';
     // Emits声明
@@ -64,6 +64,7 @@
     async function handleSubmit(v) {
         try {
             let values = await validate();
+            values = processFormData(values);
             setModalProps({confirmLoading: true});
             //提交表单
             await saveOrUpdate(values, isUpdate.value);
