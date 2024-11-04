@@ -154,6 +154,12 @@ export const searchFormSchema: FormSchema[] = [
           dictCode:"organization_definition,institution_name,identification_code"
       },
       colProps: {span: 6},
+      ifShow: () => {
+          const userStore = useUserStoreWithOut();
+          const roles = userStore.getRoleList || [];
+          // 这里根据实际角色返回布尔值
+          return roles.some(role => ['admin', 'center_analysis'].includes(role));
+      },
  	},
 	{
       label: "填报日期",
