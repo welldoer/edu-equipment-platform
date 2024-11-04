@@ -1,6 +1,9 @@
 <template>
   <BasicModal v-bind="$attrs" @register="registerModal" destroyOnClose :title="title" :width="800" @ok="handleSubmit">
-      <BasicForm @register="registerForm"/>
+    <div class="modal-form-container">
+        <BasicForm @register="registerForm"/>
+        <Divider type="vertical" class="form-divider" />
+    </div>
   </BasicModal>
 </template>
 
@@ -10,6 +13,7 @@
     import {BasicForm, useForm} from '/@/components/Form/index';
     import {formSchema} from '../SchoolSportRoomInfo_5.data';
     import {saveOrUpdate} from '../SchoolSportRoomInfo_5.api';
+    import { Divider } from 'ant-design-vue';
     // Emits声明
     const emit = defineEmits(['register','success']);
     const isUpdate = ref(true);
@@ -18,7 +22,7 @@
         labelCol: { 
         span: 14,
         style: {
-            textAlign: 'right',
+            textAlign: 'left',
             paddingRight: '10px'
         }
         },
@@ -31,7 +35,12 @@
         //labelWidth: 150,
         schemas: formSchema,
         showActionButtonGroup: false,
-        baseColProps: {span: 12},
+        baseColProps: {
+            span: 12,
+            style: {
+                padding: '0 12px',
+            },
+        },
         ...formProps,   // 应用统一的布局配置
     });
     //表单赋值
@@ -77,4 +86,21 @@
 	:deep(.ant-calendar-picker){
 		width: 100%
 	}
+.modal-form-container {
+  position: relative;
+  padding: 12px 0;
+}
+
+:deep(.form-divider) {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  height: 100%;
+  margin: 0;
+  transform: translateX(-50%);
+//   border-left: 1px solid #d9d9d9; // 实线
+  // 或者使用虚线：
+  border-left: 1px dashed #797979; // #020202;
+}
 </style>
