@@ -43,3 +43,18 @@ services:
                 max-file: "3"
         restart: always
         command: ["redis-server", "/etc/redis/redis.conf"]
+
+    minio:
+        image: quay.io/minio/minio:${MINIO_VERSION}
+        container_name: minio_${MINIO_VERSION}
+        ports:
+            - ${REAL_MINIO_API_PORT}:9000
+            - ${REAL_MINIO_CONSOLE_PORT}:9001
+        volumes:
+            - ${MINIO_DIR}/data:/data
+        environment:
+            TZ: Asia/Shanghai
+            MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+            MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+        restart: always
+        command: ["server", "/data", "--console-address", ":9001"]
