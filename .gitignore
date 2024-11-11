@@ -1,4 +1,5 @@
 .idea/
+docker/minio/
 docker/mysql/data/
 docker/mysql/logs/
 docker/redis/data/
@@ -7,3 +8,5 @@ eemp-server/target/
 eemp-server/logs/
 logs/
 .DS_Store
+
+eemp-web/pnpm-lock.yaml

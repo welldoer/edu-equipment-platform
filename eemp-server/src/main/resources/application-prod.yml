@@ -174,7 +174,7 @@ eemp:
   # 签名拦截接口
   signUrls: /sys/dict/getDictItems/*,/sys/dict/loadDict/*,/sys/dict/loadDictOrderByValue/*,/sys/dict/loadDictItem/*,/sys/dict/loadTreeData,/sys/api/queryTableDictItemsByCode,/sys/api/queryFilterTableDictInfo,/sys/api/queryTableDictByKeys,/sys/api/translateDictFromTable,/sys/api/translateDictFromTableByKeys
   #local\minio\alioss
-  uploadType: local
+  uploadType: minio
   # 前端访问地址
   domainUrl:
     pc: http://localhost:3100
@@ -190,9 +190,9 @@ eemp:
   file-view-domain: http://xxx.com
   # minio文件上传
   minio:
-    minio_url: http://xxx.com
-    minio_name: ??
-    minio_pass: ??
+    minio_url: http://eemp-minio:9000
+    minio_name: minio
+    minio_pass: minio123
     bucketName: otatest
   #大屏报表参数设置
   jmreport:
