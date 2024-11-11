@@ -53,7 +53,7 @@
     <!-- 获取教师办公计算机数统计 -->
     <select id="getTeacherComputerNumberInfo" resultType="java.util.HashMap">
         <if test="dbType == 'mysql'">
-            select chart_group, concat(year, half) as type, sum(teacher_computer_num) as value
+            select chart_group, concat(year, half) as type, sum(teacher_computer_subtotal) as value
             from
             ( edu_informatization_equip_info_8 a
             join
@@ -75,7 +75,7 @@
             group by chart_group, year, half
         </if>
         <if test="dbType == 'h2'">
-            select chart_group, concat(year, half) as type, sum(teacher_computer_num) as value
+            select chart_group, concat(year, half) as type, sum(teacher_computer_subtotal) as value
             from
             ( edu_informatization_equip_info_8 a
             join
@@ -101,7 +101,7 @@
     <!-- 获取学生计算机数统计 -->
     <select id="getStudentComputerNumberInfo" resultType="java.util.HashMap">
         <if test="dbType == 'mysql'">
-            select chart_group, concat(year, half) as type, sum(student_computer_num) as value
+            select chart_group, concat(year, half) as type, sum(student_computer_subtotal) as value
             from
             ( edu_informatization_equip_info_8 a
             join
@@ -123,7 +123,7 @@
             group by chart_group, year, half
         </if>
         <if test="dbType == 'h2'">
-            select chart_group, concat(year, half) as type, sum(student_computer_num) as value
+            select chart_group, concat(year, half) as type, sum(student_computer_subtotal) as value
             from
             ( edu_informatization_equip_info_8 a
             join
@@ -217,7 +217,7 @@
     <!-- 获取教师办公计算机数统计（按学校类型维度） -->
     <select id="getTeacherComputerNumberInfoBySchoolType" resultType="java.util.HashMap">
         <if test="dbType == 'mysql'">
-            select chart_group, concat(year, half) as type, sum(teacher_computer_num) as value
+            select chart_group, concat(year, half) as type, sum(teacher_computer_subtotal) as value
             from
               ( edu_informatization_equip_info_8 a
               join
@@ -250,7 +250,7 @@
     <!-- 获取学生计算机数统计（按学校类型维度） -->
     <select id="getStudentComputerNumberInfoBySchoolType" resultType="java.util.HashMap">
         <if test="dbType == 'mysql'">
-            select chart_group, concat(year, half) as type, sum(student_computer_num) as value
+            select chart_group, concat(year, half) as type, sum(student_computer_subtotal) as value
             from
               ( edu_informatization_equip_info_8 a
                 join

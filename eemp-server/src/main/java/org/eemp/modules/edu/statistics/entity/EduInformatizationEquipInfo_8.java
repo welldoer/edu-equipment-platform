@@ -46,34 +46,38 @@ public class EduInformatizationEquipInfo_8 implements Serializable {
 	@Excel(name = "班级数", width = 15)
     @ApiModelProperty(value = "班级数")
     private java.lang.Integer classesNum;
-	/**学生计算机室现有计算机总数*/
-	@Excel(name = "学生计算机室现有计算机总数", width = 15)
-    @ApiModelProperty(value = "学生计算机室现有计算机总数")
+	/**学生计算机室终端总台数*/
+	@Excel(name = "学生计算机室终端总台数", width = 15)
+    @ApiModelProperty(value = "学生计算机室终端总台数")
+    private java.lang.Integer studentComputerSubtotal;
+    /**学生计算机配备数*/
+    @Excel(name = "学生计算机配备数", width = 15)
+    @ApiModelProperty(value = "学生计算机配备数")
     private java.lang.Integer studentComputerNum;
-	/**学生计算机室2018年前台配备数*/
-	@Excel(name = "学生计算机室2018年前台配备数", width = 15)
-    @ApiModelProperty(value = "学生计算机室2018年前台配备数")
-    private java.lang.Integer studentComputerNumBef2018;
-	/**学生计算机室2018年后配备数*/
-	@Excel(name = "学生计算机室2018年后配备数", width = 15)
-    @ApiModelProperty(value = "学生计算机室2018年后配备数")
-    private java.lang.Integer studentComputerNumAft2018;
-	/**教师办公计算机总台数*/
-	@Excel(name = "教师办公计算机总台数", width = 15)
-    @ApiModelProperty(value = "教师办公计算机总台数")
+	/**学生云终端配备数*/
+	@Excel(name = "学生云终端配备数", width = 15)
+    @ApiModelProperty(value = "学生云终端配备数")
+    private java.lang.Integer studentCloudTerminalNum;
+	/**学生其他数字化终端配备数*/
+	@Excel(name = "学生其他数字化终端配备数", width = 15)
+    @ApiModelProperty(value = "学生其他数字化终端配备数")
+    private java.lang.Integer studentOtherTerminalNum;
+	/**教师办公终端总台数*/
+	@Excel(name = "教师办公终端总台数", width = 15)
+    @ApiModelProperty(value = "教师办公终端总台数")
+    private java.lang.Integer teacherComputerSubtotal;
+    /**教师办公计算机配备数*/
+    @Excel(name = "教师办公计算机配备数", width = 15)
+    @ApiModelProperty(value = "教师办公计算机配备数")
     private java.lang.Integer teacherComputerNum;
-	/**教师办公计算机2015年及以前配备台数*/
-	@Excel(name = "教师办公计算机2015年及以前配备台数", width = 15)
-    @ApiModelProperty(value = "教师办公计算机2015年及以前配备台数")
-    private java.lang.Integer teacherComputerNumBef2016;
-	/**教师办公计算机2016年至2019年配备数量*/
-	@Excel(name = "教师办公计算机2016年至2019年配备数量", width = 15)
-    @ApiModelProperty(value = "教师办公计算机2016年至2019年配备数量")
-    private java.lang.Integer teacherComputerNum20162019;
-	/**教师办公计算机2020年及以后配备数量*/
-	@Excel(name = "教师办公计算机2020年及以后配备数量", width = 15)
-    @ApiModelProperty(value = "教师办公计算机2020年及以后配备数量")
-    private java.lang.Integer teacherComputerNumAft2020;
+	/**教师办公云终端配备数*/
+	@Excel(name = "教师办公云终端配备数", width = 15)
+    @ApiModelProperty(value = "教师办公云终端配备数")
+    private java.lang.Integer teacherCloudTerminalNum;
+	/**教师办公其他数字化终端配备数*/
+	@Excel(name = "教师办公其他数字化终端配备数", width = 15)
+    @ApiModelProperty(value = "教师办公其他数字化终端配备数")
+    private java.lang.Integer teacherOtherTerminalNum;
 	/**“班班通”智能触控一体机数*/
 	@Excel(name = "“班班通”智能触控一体机数", width = 15)
     @ApiModelProperty(value = "“班班通”智能触控一体机数")

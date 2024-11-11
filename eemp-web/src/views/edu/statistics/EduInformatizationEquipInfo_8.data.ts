@@ -29,39 +29,44 @@ export const columns: BasicColumn[] = [
     dataIndex: 'classesNum'
    },
    {
-    title: '学生计算机室现有计算机总数',
+    title: '学生计算机室终端总台数',
+    align:"center",
+    dataIndex: 'studentComputerSubtotal'
+   },
+   {
+    title: '学生计算机配备数',
     align:"center",
     dataIndex: 'studentComputerNum'
    },
    {
-    title: '学生计算机室2018年前台配备数',
+    title: '学生云终端配备数',
     align:"center",
-    dataIndex: 'studentComputerNumBef2018'
+    dataIndex: 'studentCloudTerminalNum'
    },
    {
-    title: '学生计算机室2018年后配备数',
+    title: '学生其他数字化终端配备数',
     align:"center",
-    dataIndex: 'studentComputerNumAft2018'
+    dataIndex: 'studentOtherTerminalNum'
    },
    {
-    title: '教师办公计算机总台数',
+    title: '教师办公终端总台数',
+    align:"center",
+    dataIndex: 'teacherComputerSubtotal'
+   },
+   {
+    title: '教师办公计算机配备数',
     align:"center",
     dataIndex: 'teacherComputerNum'
    },
    {
-    title: '教师办公计算机2015年及以前配备台数',
+    title: '教师办公云终端配备数',
     align:"center",
-    dataIndex: 'teacherComputerNumBef2016'
+    dataIndex: 'teacherCloudTerminalNum'
    },
    {
-    title: '教师办公计算机2016年至2019年配备数量',
+    title: '教师办公其他数字化终端配备数',
     align:"center",
-    dataIndex: 'teacherComputerNum20162019'
-   },
-   {
-    title: '教师办公计算机2020年及以后配备数量',
-    align:"center",
-    dataIndex: 'teacherComputerNumAft2020'
+    dataIndex: 'teacherOtherTerminalNum'
    },
    {
     title: '“班班通”智能触控一体机数',
