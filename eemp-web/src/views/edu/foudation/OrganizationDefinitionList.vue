@@ -61,6 +61,7 @@
   import { getToken } from '/@/utils/auth';
   import { uploadUrl } from '/@/api/common/api';
   import { getFileAccessHttpUrl } from '/@/utils/common/compUtils';
+  import { downloadTemplateAction } from '/@/utils/edu/templateUtils';
   const checkedKeys = ref<Array<string | number>>([]);
   
   const packageName = 'organization_definition';
@@ -210,28 +211,7 @@
   }
 
   async function downloadTemplate() {
-    let params = {packageName: packageName};
-    await defHttp.post({url: getTemplateInfoUrl, params}, {joinParamsToUrl: true}).then((res) => {
-      console.log("template res: ", res);
-      if (res !== null) {
-        console.log("template res !== null.")
-
-        const formObj = document.createElement('form');
-        formObj.action = res.templateUrl;
-        formObj.method = 'get';
-        formObj.style.display = 'none';
-        const formItem = document.createElement('input');
-        formItem.value = "模板文件.xlsx";
-        formItem.name = 'fileName';
-        formObj.appendChild(formItem);
-        document.body.appendChild(formObj);
-        formObj.submit();
-        document.body.removeChild(formObj);
-      } else {
-        console.log("template res === null.")
-        createMessage.error('请联系管理员，确认已上传模板文件！');
-      }
-    });
+    await downloadTemplateAction(packageName, getTemplateInfoUrl);
   }
 
 </script>
