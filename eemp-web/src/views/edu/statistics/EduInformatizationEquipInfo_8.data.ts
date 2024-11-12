@@ -190,7 +190,24 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '学生计算机室现有计算机总数',
+    label: '学生计算机室终端总台数',
+    field: 'studentComputerSubtotal',
+    component: 'InputNumber',
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
+  },
+  {
+    label: '学生计算机配备数',
     field: 'studentComputerNum',
     component: 'InputNumber',
     componentProps: {
@@ -207,8 +224,8 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '学生计算机室2018年前台配备数',
-    field: 'studentComputerNumBef2018',
+    label: '学生云终端配备数',
+    field: 'studentCloudTerminalNum',
     component: 'InputNumber',
     componentProps: {
       min: 0,
@@ -224,8 +241,8 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '学生计算机室2018年后配备数',
-    field: 'studentComputerNumAft2018',
+    label: '学生其他数字化终端配备数',
+    field: 'studentOtherTerminalNum',
     component: 'InputNumber',
     componentProps: {
       min: 0,
@@ -241,7 +258,24 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '教师办公计算机总台数',
+    label: '教师办公终端总台数',
+    field: 'teacherComputerSubtotal',
+    component: 'InputNumber',
+    componentProps: {
+      min: 0,
+      precision: 0,  // 设置为0表示只能输入整数
+      step: 1,       // 步进值为1
+      parser: (value: string) => {
+        // 将输入值转换为非负整数
+        return Math.max(0, parseInt(value) || 0);
+      }
+    },
+    rules: [
+      { required: true, message: '请输入数量' },
+    ],
+  },
+  {
+    label: '教师办公计算机配备数',
     field: 'teacherComputerNum',
     component: 'InputNumber',
     componentProps: {
@@ -258,8 +292,8 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '教师办公计算机2015年及以前配备台数',
-    field: 'teacherComputerNumBef2016',
+    label: '教师办公云终端配备数',
+    field: 'teacherCloudTerminalNum',
     component: 'InputNumber',
     componentProps: {
       min: 0,
@@ -275,25 +309,8 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '教师办公计算机2016年至2019年配备数量',
-    field: 'teacherComputerNum20162019',
-    component: 'InputNumber',
-    componentProps: {
-      min: 0,
-      precision: 0,  // 设置为0表示只能输入整数
-      step: 1,       // 步进值为1
-      parser: (value: string) => {
-        // 将输入值转换为非负整数
-        return Math.max(0, parseInt(value) || 0);
-      }
-    },
-    rules: [
-      { required: true, message: '请输入数量' },
-    ],
-  },
-  {
-    label: '教师办公计算机2020年及以后配备数量',
-    field: 'teacherComputerNumAft2020',
+    label: '教师办公其他数字化终端配备数',
+    field: 'teacherOtherTerminalNum',
     component: 'InputNumber',
     componentProps: {
       min: 0,
