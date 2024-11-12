@@ -253,11 +253,9 @@ export const formSchema: FormSchema[] = [
     label: '特色读书场所一名称',
     field: 'firstFeaturedPlaceName',
     component: 'Input',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入特色读书场所一名称!'},
-          ];
-     },
+    rules: [
+      { message: '请输入场所名称' },
+    ],
   },
   {
     label: '特色读书场所一数量',
@@ -273,7 +271,7 @@ export const formSchema: FormSchema[] = [
       }
     },
     rules: [
-      { required: true, message: '请输入数量' },
+      { message: '请输入数量' },
     ],
   },
   {
@@ -284,18 +282,16 @@ export const formSchema: FormSchema[] = [
       min: 0,  // 设置最小值为0
     },
     rules: [
-      { required: true, message: '请输入数量' },
+      { message: '请输入数量' },
     ],
   },
   {
     label: '特色读书场所二名称',
     field: 'secondFeaturedPlaceName',
     component: 'Input',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入特色读书场所二名称!'},
-          ];
-     },
+    rules: [
+      { message: '请输入场所名称' },
+    ],
   },
   {
     label: '特色读书场所二数量',
@@ -311,7 +307,7 @@ export const formSchema: FormSchema[] = [
       }
     },
     rules: [
-      { required: true, message: '请输入数量' },
+      { message: '请输入数量' },
     ],
   },
   {
@@ -322,7 +318,7 @@ export const formSchema: FormSchema[] = [
       min: 0,  // 设置最小值为0
     },
     rules: [
-      { required: true, message: '请输入数量' },
+      { message: '请输入数量' },
     ],
   },
   {

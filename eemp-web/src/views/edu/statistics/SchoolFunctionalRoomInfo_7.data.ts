@@ -427,11 +427,9 @@ export const formSchema: FormSchema[] = [
     label: '特色功能室一名称',
     field: 'firstFeaturedRoomName',
     component: 'Input',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入特色功能室一名称!'},
-          ];
-     },
+    rules: [
+      { message: '请输入功能室名称' },
+    ],
   },
   {
     label: '特色功能室一间数',
@@ -447,7 +445,7 @@ export const formSchema: FormSchema[] = [
       }
     },
     rules: [
-      { required: true, message: '请输入数量' },
+      { message: '请输入数量' },
     ],
   },
   {
@@ -458,18 +456,16 @@ export const formSchema: FormSchema[] = [
       min: 0,  // 设置最小值为0
     },
     rules: [
-      { required: true, message: '请输入数量' },
+      { message: '请输入数量' },
     ],
   },
   {
     label: '特色功能室二名称',
     field: 'secondFeaturedRoomName',
     component: 'Input',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入特色功能室二名称!'},
-          ];
-     },
+    rules: [
+      { message: '请输入功能室名称' },
+    ],
   },
   {
     label: '特色功能室二间数',
@@ -485,7 +481,7 @@ export const formSchema: FormSchema[] = [
       }
     },
     rules: [
-      { required: true, message: '请输入数量' },
+      { message: '请输入数量' },
     ],
   },
   {
@@ -496,7 +492,7 @@ export const formSchema: FormSchema[] = [
       min: 0,  // 设置最小值为0
     },
     rules: [
-      { required: true, message: '请输入数量' },
+      { message: '请输入数量' },
     ],
   },
 	// TODO 主键隐藏字段，目前写死为ID
