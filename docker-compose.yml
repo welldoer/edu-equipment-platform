@@ -45,6 +45,8 @@ services:
       TZ: Asia/Shanghai
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
+    volumes:
+      - ./data/minio:/data
     restart: always
     hostname: eemp-minio
     container_name: eemp-minio
@@ -60,6 +62,7 @@ services:
     depends_on:
       - eemp-mysql
       - eemp-redis
+      - eemp-minio
     container_name: eemp-system
     image: eemp-system
     hostname: eemp-system
