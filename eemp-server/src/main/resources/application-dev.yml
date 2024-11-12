@@ -177,7 +177,7 @@ eemp:
   file-view-domain: http://xxx.com
   # minio文件上传
   minio:
-    minio_url: http://127.0.0.1:9000
+    minio_url: http://eemp-minio:9000
     minio_name: minio
     minio_pass: minio123
     bucketName: otatest
