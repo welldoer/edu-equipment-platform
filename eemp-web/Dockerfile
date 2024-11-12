@@ -20,10 +20,6 @@ RUN echo "server {  \
                           break; \
                       } \
                   } \
-                  # 添加正确的 MIME 类型 \
-                  location ~* \.(js|jsx|mjs)$ { \
-                      add_header Content-Type application/javascript; \
-                  } \
                   access_log  /var/log/nginx/access.log ; \
               } " > /etc/nginx/conf.d/default.conf \
     &&  mkdir  -p  /var/www \
