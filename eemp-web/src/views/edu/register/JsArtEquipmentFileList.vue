@@ -4,7 +4,7 @@
    <BasicTable @register="registerTable" :rowSelection="rowSelection">
      <!--插槽:table标题-->
       <template #tableTitle>
-        <a-upload name="file" :showUploadList="false" :action="uploadUrl" :headers="headers" @change="handleChange">
+        <a-upload name="file" :showUploadList="false" :action="uploadUrl" :headers="headers" :data="{biz: packageName}" @change="handleChange">
           <a-button type="primary" preIcon="ant-design:upload-outlined" v-auth="'edu.register:js_art_equipment_file:uploadTemplate'">模板上传</a-button>
         </a-upload>
         <a-button preIcon="ant-design:download-outlined" type="primary" @click="downloadTemplate" v-auth="'edu.register:js_art_equipment_file:downloadTemplate'">模板下载</a-button>
