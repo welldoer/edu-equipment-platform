@@ -29,57 +29,57 @@ export const columns: BasicColumn[] = [
     dataIndex: 'classesNum'
    },
    {
-    title: '学生计算机室终端总台数',
+    title: '学生数字化终端总数',
     align:"center",
     dataIndex: 'studentComputerSubtotal'
    },
    {
-    title: '学生计算机配备数',
+    title: '学生普通计算机数',
     align:"center",
     dataIndex: 'studentComputerNum'
    },
    {
-    title: '学生云终端配备数',
+    title: '学生云终端数',
     align:"center",
     dataIndex: 'studentCloudTerminalNum'
    },
    {
-    title: '学生其他数字化终端配备数',
+    title: '学生其他数字化终端数',
     align:"center",
     dataIndex: 'studentOtherTerminalNum'
    },
    {
-    title: '教师办公终端总台数',
+    title: '教师办公终端总数',
     align:"center",
     dataIndex: 'teacherComputerSubtotal'
    },
    {
-    title: '教师办公计算机配备数',
+    title: '教师普通计算机数',
     align:"center",
     dataIndex: 'teacherComputerNum'
    },
    {
-    title: '教师办公云终端配备数',
+    title: '教师云终端数',
     align:"center",
     dataIndex: 'teacherCloudTerminalNum'
    },
    {
-    title: '教师办公其他数字化终端配备数',
+    title: '教师其他数字化终端数',
     align:"center",
     dataIndex: 'teacherOtherTerminalNum'
    },
    {
-    title: '“班班通”智能触控一体机数',
+    title: '教室智能触控一体机（班班通）总数',
     align:"center",
     dataIndex: 'allInOneMachineNum'
    },
    {
-    title: '“班班通”电脑＋电视机',
+    title: '功能室智能触控一体机总数',
     align:"center",
     dataIndex: 'computerPlusTvNum'
    },
    {
-    title: '“班班通”视频展示台数量',
+    title: '视频展示台数量',
     align:"center",
     dataIndex: 'videoVisualizerNum'
    },
@@ -190,7 +190,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '学生计算机室终端总台数',
+    label: '学生数字化终端总数',
     field: 'studentComputerSubtotal',
     component: 'InputNumber',
     componentProps: {
@@ -207,7 +207,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '学生计算机配备数',
+    label: '学生普通计算机数',
     field: 'studentComputerNum',
     component: 'InputNumber',
     componentProps: {
@@ -224,7 +224,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '学生云终端配备数',
+    label: '学生云终端数',
     field: 'studentCloudTerminalNum',
     component: 'InputNumber',
     componentProps: {
@@ -241,7 +241,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '学生其他数字化终端配备数',
+    label: '学生其他数字化终端数',
     field: 'studentOtherTerminalNum',
     component: 'InputNumber',
     componentProps: {
@@ -258,7 +258,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '教师办公终端总台数',
+    label: '教师办公终端总数',
     field: 'teacherComputerSubtotal',
     component: 'InputNumber',
     componentProps: {
@@ -275,7 +275,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '教师办公计算机配备数',
+    label: '教师普通计算机数',
     field: 'teacherComputerNum',
     component: 'InputNumber',
     componentProps: {
@@ -292,7 +292,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '教师办公云终端配备数',
+    label: '教师云终端数',
     field: 'teacherCloudTerminalNum',
     component: 'InputNumber',
     componentProps: {
@@ -309,7 +309,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '教师办公其他数字化终端配备数',
+    label: '教师其他数字化终端数',
     field: 'teacherOtherTerminalNum',
     component: 'InputNumber',
     componentProps: {
@@ -326,7 +326,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '“班班通”智能触控一体机数',
+    label: '教室智能触控一体机（班班通）总数',
     field: 'allInOneMachineNum',
     component: 'InputNumber',
     componentProps: {
@@ -343,7 +343,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '“班班通”电脑＋电视机',
+    label: '功能室智能触控一体机总数',
     field: 'computerPlusTvNum',
     component: 'InputNumber',
     componentProps: {
@@ -360,7 +360,7 @@ export const formSchema: FormSchema[] = [
     ],
   },
   {
-    label: '“班班通”视频展示台数量',
+    label: '视频展示台数量',
     field: 'videoVisualizerNum',
     component: 'InputNumber',
     componentProps: {
