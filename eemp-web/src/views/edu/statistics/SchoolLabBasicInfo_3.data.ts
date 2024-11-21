@@ -26,107 +26,128 @@ export const columns: BasicColumn[] = [
    {
     title: '物理实验室间数',
     align:"center",
-    dataIndex: 'physicsLabRoomNum'
+    dataIndex: 'physicsLabRoomNum',
+    ifShow: () => hasFieldPermission('physics'),
    },
    {
     title: '物理实验室面积',
     align:"center",
-    dataIndex: 'physicsLabArea'
+    dataIndex: 'physicsLabArea',
+    ifShow: () => hasFieldPermission('physics'),
    },
    {
     title: '物理实验室实验桌(张)',
     align:"center",
-    dataIndex: 'physicsLabBenchNum'
+    dataIndex: 'physicsLabBenchNum',
+    ifShow: () => hasFieldPermission('physics'),
    },
    {
     title: '物理器材、准备室间数',
     align:"center",
-    dataIndex: 'physicsEquipmentRoomNum'
+    dataIndex: 'physicsEquipmentRoomNum',
+    ifShow: () => hasFieldPermission('physics'),
    },
    {
     title: '物理器材、准备室面积',
     align:"center",
-    dataIndex: 'physicsEquipmentRoomArea'
+    dataIndex: 'physicsEquipmentRoomArea',
+    ifShow: () => hasFieldPermission('physics'),
    },
    {
     title: '物理器材、准备室仪器柜(口)',
     align:"center",
-    dataIndex: 'physicsEquipmentCabinetNum'
+    dataIndex: 'physicsEquipmentCabinetNum',
+    ifShow: () => hasFieldPermission('physics'),
    },
    {
     title: '物理器材、准备室准备台(个)',
     align:"center",
-    dataIndex: 'physicsEquipmentBenchNum'
+    dataIndex: 'physicsEquipmentBenchNum',
+    ifShow: () => hasFieldPermission('physics'),
    },
    {
     title: '化学（生化）实验室间数',
     align:"center",
-    dataIndex: 'biochemistryLabRoomNum'
+    dataIndex: 'biochemistryLabRoomNum',
+    ifShow: () => hasFieldPermission('chemistry'),
    },
    {
     title: '化学（生化）实验室面积',
     align:"center",
-    dataIndex: 'biochemistryLabArea'
+    dataIndex: 'biochemistryLabArea',
+    ifShow: () => hasFieldPermission('chemistry'),
    },
    {
     title: '化学（生化）实验室实验桌(张)',
     align:"center",
-    dataIndex: 'biochemistryLabBenchNum'
+    dataIndex: 'biochemistryLabBenchNum',
+    ifShow: () => hasFieldPermission('chemistry'),
    },
    {
     title: '化学（生化）器材、准备室间数',
     align:"center",
-    dataIndex: 'biochemistryEquipRoomNum'
+    dataIndex: 'biochemistryEquipRoomNum',
+    ifShow: () => hasFieldPermission('chemistry'),
    },
    {
     title: '化学（生化）器材、准备室面积',
     align:"center",
-    dataIndex: 'biochemistryEquipRoomArea'
+    dataIndex: 'biochemistryEquipRoomArea',
+    ifShow: () => hasFieldPermission('chemistry'),
    },
    {
     title: '化学（生化）器材、准备室仪器柜(口)',
     align:"center",
-    dataIndex: 'biochemistryEquipCabinetNum'
+    dataIndex: 'biochemistryEquipCabinetNum',
+    ifShow: () => hasFieldPermission('chemistry'),
    },
    {
     title: '化学（生化）器材、准备室准备台(个)',
     align:"center",
-    dataIndex: 'biochemistryEquipBenchNum'
+    dataIndex: 'biochemistryEquipBenchNum',
+    ifShow: () => hasFieldPermission('chemistry'),
    },
    {
     title: '科学实验室间数',
     align:"center",
-    dataIndex: 'scienceLabRoomNum'
+    dataIndex: 'scienceLabRoomNum',
+    ifShow: () => hasFieldPermission('science'),
    },
    {
     title: '科学实验室面积',
     align:"center",
-    dataIndex: 'scienceLabArea'
+    dataIndex: 'scienceLabArea',
+    ifShow: () => hasFieldPermission('science'),
    },
    {
     title: '科学实验室实验桌(张)',
     align:"center",
-    dataIndex: 'scienceLabBenchNum'
+    dataIndex: 'scienceLabBenchNum',
+    ifShow: () => hasFieldPermission('science'),
    },
    {
     title: '科学器材、准备室间数',
     align:"center",
-    dataIndex: 'scienceEquipmentRoomNum'
+    dataIndex: 'scienceEquipmentRoomNum',
+    ifShow: () => hasFieldPermission('science'),
    },
    {
     title: '科学器材、准备室面积',
     align:"center",
-    dataIndex: 'scienceEquipmentRoomArea'
+    dataIndex: 'scienceEquipmentRoomArea',
+    ifShow: () => hasFieldPermission('science'),
    },
    {
     title: '科学器材、准备室仪器柜(口)',
     align:"center",
-    dataIndex: 'scienceEquipmentCabinetNum'
+    dataIndex: 'scienceEquipmentCabinetNum',
+    ifShow: () => hasFieldPermission('science'),
    },
    {
     title: '科学器材、准备室准备台(个)',
     align:"center",
-    dataIndex: 'scienceEquipmentBenchNum'
+    dataIndex: 'scienceEquipmentBenchNum',
+    ifShow: () => hasFieldPermission('science'),
    },
    {
     title: '危化品专柜数量(口)',
