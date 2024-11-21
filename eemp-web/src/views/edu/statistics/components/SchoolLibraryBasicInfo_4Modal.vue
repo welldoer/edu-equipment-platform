@@ -47,7 +47,12 @@
     const [registerModal, {setModalProps, closeModal}] = useModalInner(async (data) => {
         //重置表单
         await resetFields();
-        setModalProps({confirmLoading: false,showCancelBtn:!!data?.showFooter,showOkBtn:!!data?.showFooter});
+        setModalProps({
+            confirmLoading: false,
+            showCancelBtn:!!data?.showFooter,
+            showOkBtn:!!data?.showFooter,
+            okText: '确定并保存',
+        });
         isUpdate.value = !!data?.isUpdate;
         if (unref(isUpdate)) {
             //表单赋值
