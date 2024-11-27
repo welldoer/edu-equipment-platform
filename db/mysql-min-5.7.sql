@@ -3182,7 +3182,7 @@ CREATE TABLE `school_library_basic_info_4` (
   `library_area` double NOT NULL COMMENT '藏书室总面积（m2）',
   `reading_room_area` double NOT NULL COMMENT '阅览室面积（m2）',
   `reading_room_table_num` int NOT NULL COMMENT '阅览室阅览桌（张）',
-  `book_num` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '藏书册数',
+  `book_num` int NOT NULL COMMENT '藏书册数',
   `has_a_book_management_system` varchar(1) COLLATE utf8mb4_general_ci NOT NULL COMMENT '是否配备图书管理软件',
   `average_books_per_student` double NOT NULL COMMENT '生均册数',
   `first_featured_place_name` varchar(32) COLLATE utf8mb4_general_ci COMMENT '特色读书场所一名称',

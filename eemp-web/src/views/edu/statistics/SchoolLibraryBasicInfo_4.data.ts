@@ -271,7 +271,7 @@ export const formSchema: FormSchema[] = [
       }
     },
     rules: [
-      { message: '请输入数量' },
+      { required: false, message: '请输入数量' },
     ],
   },
   {
@@ -307,7 +307,7 @@ export const formSchema: FormSchema[] = [
       }
     },
     rules: [
-      { message: '请输入数量' },
+      { required: false, message: '请输入数量' },
     ],
   },
   {
