@@ -7,6 +7,7 @@ import { getDictItemsByCode } from '/@/utils/dict/index';
 import { filterMultiDictText } from '/@/utils/dict/JDictSelectUtil.js';
 import { isEmpty } from '/@/utils/is';
 import { useMessage } from '/@/hooks/web/useMessage';
+import { defHttp } from '/@/utils/http/axios';
 const { createMessage } = useMessage();
 
 const render = {
@@ -158,7 +159,7 @@ const render = {
 /**
  * 文件下载
  */
-function downloadFile(url) {
+async function downloadFile(url) {
   if (!url) {
     createMessage.warning('未知的文件');
     return;
@@ -167,7 +168,39 @@ function downloadFile(url) {
     url = url.substring(0, url.indexOf(','));
   }
   url = getFileAccessHttpUrl(url.split(',')[0]);
-  if (url) {
+  const urlParts = url.split('/');
+  const host = urlParts[2];
+  if (host.includes('minio')) {
+    console.log('downloadFile from minio:', url);
+    const bucket = urlParts[3];
+    const objectKey = urlParts.slice(4).join('/');
+
+    // 从objectKey中获取原始文件名
+    const originalFileName = objectKey.split('/').pop() || '模板文件.xlsx';
+
+    const response = await defHttp.get<Blob>(
+      {
+        url: '/edu/downloadTemplateFromMinio',
+        params: {
+          bucket,
+          objectKey
+        },
+        responseType: 'blob'
+      },
+      { isReturnNativeResponse: true }
+    );
+
+    const blob = new Blob([response.data], { 
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
+    });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = originalFileName;
+    link.click();
+    window.URL.revokeObjectURL(link.href);
+    return;
+  } else {
+    console.log('downloadFile from url:', url);
     window.open(url);
   }
 }
