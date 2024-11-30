@@ -27,127 +27,127 @@ export const columns: BasicColumn[] = [
     title: '物理实验室间数',
     align:"center",
     dataIndex: 'physicsLabRoomNum',
-    ifShow: () => hasFieldPermission('physics'),
+    ifShow: () => hasFieldPermission('physics') || hasAnyCenterRole(),
    },
    {
     title: '物理实验室面积',
     align:"center",
     dataIndex: 'physicsLabArea',
-    ifShow: () => hasFieldPermission('physics'),
+    ifShow: () => hasFieldPermission('physics') || hasAnyCenterRole(),
    },
    {
     title: '物理实验室实验桌(张)',
     align:"center",
     dataIndex: 'physicsLabBenchNum',
-    ifShow: () => hasFieldPermission('physics'),
+    ifShow: () => hasFieldPermission('physics') || hasAnyCenterRole(),
    },
    {
     title: '物理器材、准备室间数',
     align:"center",
     dataIndex: 'physicsEquipmentRoomNum',
-    ifShow: () => hasFieldPermission('physics'),
+    ifShow: () => hasFieldPermission('physics') || hasAnyCenterRole(),
    },
    {
     title: '物理器材、准备室面积',
     align:"center",
     dataIndex: 'physicsEquipmentRoomArea',
-    ifShow: () => hasFieldPermission('physics'),
+    ifShow: () => hasFieldPermission('physics') || hasAnyCenterRole(),
    },
    {
     title: '物理器材、准备室仪器柜(口)',
     align:"center",
     dataIndex: 'physicsEquipmentCabinetNum',
-    ifShow: () => hasFieldPermission('physics'),
+    ifShow: () => hasFieldPermission('physics') || hasAnyCenterRole(),
    },
    {
     title: '物理器材、准备室准备台(个)',
     align:"center",
     dataIndex: 'physicsEquipmentBenchNum',
-    ifShow: () => hasFieldPermission('physics'),
+    ifShow: () => hasFieldPermission('physics') || hasAnyCenterRole(),
    },
    {
     title: '化学（生化）实验室间数',
     align:"center",
     dataIndex: 'biochemistryLabRoomNum',
-    ifShow: () => hasFieldPermission('chemistry'),
+    ifShow: () => hasFieldPermission('chemistry') || hasAnyCenterRole(),
    },
    {
     title: '化学（生化）实验室面积',
     align:"center",
     dataIndex: 'biochemistryLabArea',
-    ifShow: () => hasFieldPermission('chemistry'),
+    ifShow: () => hasFieldPermission('chemistry') || hasAnyCenterRole(),
    },
    {
     title: '化学（生化）实验室实验桌(张)',
     align:"center",
     dataIndex: 'biochemistryLabBenchNum',
-    ifShow: () => hasFieldPermission('chemistry'),
+    ifShow: () => hasFieldPermission('chemistry') || hasAnyCenterRole(),
    },
    {
     title: '化学（生化）器材、准备室间数',
     align:"center",
     dataIndex: 'biochemistryEquipRoomNum',
-    ifShow: () => hasFieldPermission('chemistry'),
+    ifShow: () => hasFieldPermission('chemistry') || hasAnyCenterRole(),
    },
    {
     title: '化学（生化）器材、准备室面积',
     align:"center",
     dataIndex: 'biochemistryEquipRoomArea',
-    ifShow: () => hasFieldPermission('chemistry'),
+    ifShow: () => hasFieldPermission('chemistry') || hasAnyCenterRole(),
    },
    {
     title: '化学（生化）器材、准备室仪器柜(口)',
     align:"center",
     dataIndex: 'biochemistryEquipCabinetNum',
-    ifShow: () => hasFieldPermission('chemistry'),
+    ifShow: () => hasFieldPermission('chemistry') || hasAnyCenterRole(),
    },
    {
     title: '化学（生化）器材、准备室准备台(个)',
     align:"center",
     dataIndex: 'biochemistryEquipBenchNum',
-    ifShow: () => hasFieldPermission('chemistry'),
+    ifShow: () => hasFieldPermission('chemistry') || hasAnyCenterRole(),
    },
    {
     title: '科学实验室间数',
     align:"center",
     dataIndex: 'scienceLabRoomNum',
-    ifShow: () => hasFieldPermission('science'),
+    ifShow: () => hasFieldPermission('science') || hasAnyCenterRole(),
    },
    {
     title: '科学实验室面积',
     align:"center",
     dataIndex: 'scienceLabArea',
-    ifShow: () => hasFieldPermission('science'),
+    ifShow: () => hasFieldPermission('science') || hasAnyCenterRole(),
    },
    {
     title: '科学实验室实验桌(张)',
     align:"center",
     dataIndex: 'scienceLabBenchNum',
-    ifShow: () => hasFieldPermission('science'),
+    ifShow: () => hasFieldPermission('science') || hasAnyCenterRole(),
    },
    {
     title: '科学器材、准备室间数',
     align:"center",
     dataIndex: 'scienceEquipmentRoomNum',
-    ifShow: () => hasFieldPermission('science'),
+    ifShow: () => hasFieldPermission('science') || hasAnyCenterRole(),
    },
    {
     title: '科学器材、准备室面积',
     align:"center",
     dataIndex: 'scienceEquipmentRoomArea',
-    ifShow: () => hasFieldPermission('science'),
+    ifShow: () => hasFieldPermission('science') || hasAnyCenterRole(),
    },
    {
     title: '科学器材、准备室仪器柜(口)',
     align:"center",
     dataIndex: 'scienceEquipmentCabinetNum',
-    ifShow: () => hasFieldPermission('science'),
+    ifShow: () => hasFieldPermission('science') || hasAnyCenterRole(),
    },
    {
     title: '科学器材、准备室准备台(个)',
     align:"center",
     dataIndex: 'scienceEquipmentBenchNum',
-    ifShow: () => hasFieldPermission('science'),
+    ifShow: () => hasFieldPermission('science') || hasAnyCenterRole(),
    },
    {
     title: '危化品专柜数量(口)',
@@ -201,6 +201,15 @@ function hasFieldPermission(fieldCode: string): boolean {
   const userStore = useUserStoreWithOut();
   const roles = userStore.getRoleList || [];
   return roles.some(role => FIELD_PERMISSION_MAP[fieldCode]?.includes(role));
+}
+
+// 为装备中心角色可以查看所有字段做铺垫
+function hasAnyCenterRole(): boolean {
+  const userStore = useUserStoreWithOut();
+  const roles = userStore.getRoleList || [];
+  return roles.some(role => [
+    'center_check', 'center_analysis', 'center_book_check', 'center_look', 'center_admin'
+  ].includes(role));
 }
 
 // 定义默认值映射
