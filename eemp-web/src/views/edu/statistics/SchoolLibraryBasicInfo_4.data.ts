@@ -282,7 +282,7 @@ export const formSchema: FormSchema[] = [
       min: 0,  // 设置最小值为0
     },
     rules: [
-      { message: '请输入数量' },
+      { required: false, message: '请输入数量' },
     ],
   },
   {
@@ -318,7 +318,7 @@ export const formSchema: FormSchema[] = [
       min: 0,  // 设置最小值为0
     },
     rules: [
-      { message: '请输入数量' },
+      { required: false, message: '请输入数量' },
     ],
   },
   {
