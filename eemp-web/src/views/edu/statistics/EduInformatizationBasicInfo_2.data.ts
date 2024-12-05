@@ -259,6 +259,7 @@ export const formSchema: FormSchema[] = [
     dynamicRules: ({model,schema}) => {
           return [
                  { required: true, message: '请输入宣传平台名称!'},
+                 { max: 18, message: '最大长度：18' },
           ];
      },
   },
