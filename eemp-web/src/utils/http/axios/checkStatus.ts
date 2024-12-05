@@ -46,7 +46,7 @@ export function checkStatus(status: number, msg: string, errorMessageMode: Error
       errMessage = t('sys.api.errMsg408');
       break;
     case 500:
-      errMessage = t('sys.api.errMsg500');
+      errMessage = t('sys.api.errMsg500') + '【' + msg + '】';
       break;
     case 501:
       errMessage = t('sys.api.errMsg501');
