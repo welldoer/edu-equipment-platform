@@ -428,7 +428,7 @@ export const formSchema: FormSchema[] = [
     field: 'firstFeaturedRoomName',
     component: 'Input',
     rules: [
-      { message: '请输入功能室名称' },
+      { required: false, message: '请输入功能室名称' },
     ],
   },
   {
@@ -445,7 +445,7 @@ export const formSchema: FormSchema[] = [
       }
     },
     rules: [
-      { message: '请输入数量' },
+      { required: false, message: '请输入数量' },
     ],
   },
   {
@@ -456,7 +456,7 @@ export const formSchema: FormSchema[] = [
       min: 0,  // 设置最小值为0
     },
     rules: [
-      { message: '请输入数量' },
+      { required: false, message: '请输入数量' },
     ],
   },
   {
@@ -464,7 +464,7 @@ export const formSchema: FormSchema[] = [
     field: 'secondFeaturedRoomName',
     component: 'Input',
     rules: [
-      { message: '请输入功能室名称' },
+      { required: false, message: '请输入功能室名称' },
     ],
   },
   {
@@ -481,7 +481,7 @@ export const formSchema: FormSchema[] = [
       }
     },
     rules: [
-      { message: '请输入数量' },
+      { required: false, message: '请输入数量' },
     ],
   },
   {
@@ -492,7 +492,7 @@ export const formSchema: FormSchema[] = [
       min: 0,  // 设置最小值为0
     },
     rules: [
-      { message: '请输入数量' },
+      { required: false, message: '请输入数量' },
     ],
   },
 	// TODO 主键隐藏字段，目前写死为ID

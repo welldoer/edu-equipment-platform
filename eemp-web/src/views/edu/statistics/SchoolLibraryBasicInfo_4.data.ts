@@ -254,7 +254,7 @@ export const formSchema: FormSchema[] = [
     field: 'firstFeaturedPlaceName',
     component: 'Input',
     rules: [
-      { message: '请输入场所名称' },
+      { required: false, message: '请输入场所名称' },
     ],
   },
   {
@@ -290,7 +290,7 @@ export const formSchema: FormSchema[] = [
     field: 'secondFeaturedPlaceName',
     component: 'Input',
     rules: [
-      { message: '请输入场所名称' },
+      { required: false, message: '请输入场所名称' },
     ],
   },
   {
