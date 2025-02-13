@@ -3697,6 +3697,33 @@ CREATE TABLE `experimental_teaching_plan` (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- --------------------------------------------------------------
+-- Table structure for experimental_teaching_records
+-- --------------------------------------------------------------
+DROP TABLE IF EXISTS `experimental_teaching_records`;
+CREATE TABLE `experimental_teaching_records` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `identification_code` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
+  `subject` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '实验科目',
+  `date_of_experiment` date NOT NULL COMMENT '实验日期',
+  `teacher` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '上课教师',
+  `student_number` int NOT NULL COMMENT '学生人数',
+  `exact_form` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '实验形式',
+  `group_quantity` int NOT NULL COMMENT '开出组数',
+  `experiment_content` text COLLATE utf8mb4_general_ci NOT NULL COMMENT '实验内容',
+  `experiment_equipment` text COLLATE utf8mb4_general_ci NOT NULL COMMENT '实验器材',
+  `process_record` text COLLATE utf8mb4_general_ci NOT NULL COMMENT '实验过程记录',
+  `use_of_instruments` text COLLATE utf8mb4_general_ci NOT NULL COMMENT '仪器设备使用情况',
+  `results_and_evaluation` text COLLATE utf8mb4_general_ci NOT NULL COMMENT '实验结果及评价',
+  `laboratory_technician` varchar(32) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '实验员',
+  `create_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime DEFAULT NULL COMMENT '更新日期',
+  `sys_org_code` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '所属部门',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- --------------------------------------------------------------
 -- Dict increase data
 -- --------------------------------------------------------------
 INSERT INTO `sys_dict` (id,dict_name,dict_code,description,del_flag,create_by,create_time,update_by,update_time,`type`,tenant_id,low_app_id) VALUES
@@ -3829,6 +3856,7 @@ INSERT INTO sys_permission(id, parent_id, name, url, component, component_name, 
    ,('2023112905055350290', '1714103540890349576', '安全责任书', '/edu/hazard/signingOfSecurityResponsibilityList', 'edu/hazard/SigningOfSecurityResponsibilityList', NULL, NULL, 1, NULL, '1', 1.00, 0, 'ant-design:fire-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2023-11-29 17:05:29', NULL, NULL, 0)
    ,('2024100815260010010', '1666282632293515286', '资源配置统计', '/edu/deploypment/infoOfDeploymentList', 'edu/deployment/InfoOfDeploymentList', NULL, NULL, 1, NULL, '1', 1.00, 0, 'ant-design:account-book-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2024-10-08 17:05:29', NULL, NULL, 0)
    ,('2025021004066860350', '1666282632293519122', '实验教学计划', '/edu/practice/experimentalTeachingPlanList', 'edu/practice/ExperimentalTeachingPlanList', NULL, NULL, 0, NULL, '1', 1.00, 0, 'ant-design:clock-circle-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2025-02-10 16:06:35', NULL, NULL, 0)
+   ,('2025021211517690100', '1666282632293519122', '实验教学记载', '/edu/practice/experimentalTeachingRecordsList', 'edu/practice/ExperimentalTeachingRecordsList', NULL, NULL, 0, NULL, '1', 2.00, 0, 'ant-design:appstore-add-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0)
     ;
 
 INSERT INTO sys_permission(id, parent_id, name, url, component, is_route, component_name, redirect, menu_type, perms, perms_type, sort_no, always_show, icon, is_leaf, keep_alive, hidden, hide_tab, description, create_by, create_time, update_by, update_time, del_flag, rule_flag, status, internal_or_external) VALUES
@@ -4090,6 +4118,12 @@ INSERT INTO sys_permission(id, parent_id, name, url, component, is_route, compon
     ('2025021004066870354', '2025021004066860350', '批量删除实验教学计划', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_plan:deleteBatch', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-10 16:06:35', NULL, NULL, 0, 0, '1', 0),
     ('2025021004066870355', '2025021004066860350', '导出excel_实验教学计划', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_plan:exportXls', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-10 16:06:35', NULL, NULL, 0, 0, '1', 0),
     ('2025021004066870356', '2025021004066860350', '导入excel_实验教学计划', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_plan:importExcel', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-10 16:06:35', NULL, NULL, 0, 0, '1', 0)
+   ,('2025021211517690101', '2025021211517690100', '添加实验教学记载', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_records:add', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0, 0, '1', 0),
+    ('2025021211517690102', '2025021211517690100', '编辑实验教学记载', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_records:edit', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0, 0, '1', 0),
+    ('2025021211517690103', '2025021211517690100', '删除实验教学记载', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_records:delete', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0, 0, '1', 0),
+    ('2025021211517690104', '2025021211517690100', '批量删除实验教学记载', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_records:deleteBatch', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0, 0, '1', 0),
+    ('2025021211517690105', '2025021211517690100', '导出excel_实验教学记载', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_records:exportXls', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0, 0, '1', 0),
+    ('2025021211517690106', '2025021211517690100', '导入excel_实验教学记载', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_records:importExcel', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0, 0, '1', 0)
     ;
 
 -- 角色权限：系统管理员
@@ -4233,6 +4267,16 @@ INSERT INTO `edu_informatization_equip_info_8` (`id`, `identification_code`, `fi
 
 INSERT INTO `filling_control` (`id`, `control_type`, `control_name`, `start_date`, `end_date`, `check_start_date`, `check_end_date`, `school_list`, `memo`, `create_by`, `create_time`, `update_by`, `update_time`, `sys_org_code`) VALUES
     ('1705147748615184385',	'01',	'2023下半年填报',	'2023-09-01',	'2023-09-30',	'2023-10-01',	'2023-10-15',	'1232002606',	NULL,	'admin',	'2023-09-22 17:11:18',	NULL,	NULL,	'A01');
+
+INSERT INTO `experimental_teaching_plan` (`id`, `identification_code`, `sequence_number`, `experiment_name`, `planning_time`, `exact_form`, `create_by`, `create_time`, `update_by`, `update_time`, `sys_org_code`) VALUES
+    ('1889254308495695873',	'5262003028',	NULL,	'一中#2',	'2025-02-20',	'2',	'admin_syz',	'2025-02-11 18:05:02',	NULL,	NULL,	'A01'),
+    ('1889254596166230018',	'2142009669',	NULL,	'八小#1',	'2025-02-19',	'1',	'admin_bbxx',	'2025-02-11 18:06:11',	NULL,	NULL,	'A01'),
+    ('1889254659617660929',	'2142009669',	NULL,	'八小#2',	'2025-02-22',	'2',	'admin_bbxx',	'2025-02-11 18:06:26',	NULL,	NULL,	'A01'),
+    ('1889255012216020993',	'3142007024',	NULL,	'八初#1',	'2025-02-18',	'1',	'admin_bbzx',	'2025-02-11 18:07:50',	NULL,	NULL,	'A01'),
+    ('1889255079471685634',	'3142007024',	NULL,	'八初#2',	'2025-02-26',	'2',	'admin_bbzx',	'2025-02-11 18:08:06',	NULL,	NULL,	'A01'),
+    ('1889261464313864193',	'5262003028',	NULL,	'一种#1',	'2025-02-12',	'1',	'admin_syz',	'2025-02-11 18:33:29',	NULL,	NULL,	'A01')
+    ;
+
 
 /* 暂时屏蔽 小学器材设施配备要求模板表
 -- ----------------------------
@@ -4429,6 +4473,7 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
      ('1707331100424265730',	'1666258199747100674',	'2023071507187680168',	NULL,	'2023-09-28 17:47:10',	'127.0.0.1')
     ,('1889225764981891074',	'1666258199747100674',	'1666282632293519122',	NULL,	'2025-02-11 16:11:37',	'127.0.0.1'),               -- 教育装备应用
      ('1889225765007056897',	'1666258199747100674',	'2025021004066860350',	NULL,	'2025-02-11 16:11:37',	'127.0.0.1')                -- 实验教学计划
+    ,('1889845561969012738',	'1666258199747100674',	'2025021211517690100',	NULL,	'2025-02-13 09:14:28',	'127.0.0.1')                -- 实验教学记载
      ;
 
 -- 角色权限：装备中心 – 装备管理检查
@@ -4537,6 +4582,7 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
    ,('1843633108252037122',	'1698620226046316546',	'1666282632293515286',	NULL,	'2024-10-08 20:42:41',	'127.0.0.1')                -- 教育资源配置
    ,('1889224906726629378',	'1698620226046316546',	'1666282632293519122',	NULL,	'2025-02-11 16:08:12',	'127.0.0.1'),               -- 教育装备应用
     ('1889224906823098369',	'1698620226046316546',	'2025021004066860350',	NULL,	'2025-02-11 16:08:12',	'127.0.0.1')                -- 实验教学计划
+   ,('1889848547394908161',	'1698620226046316546',	'2025021211517690100',	NULL,	'2025-02-13 09:26:20',	'127.0.0.1')                -- 实验教学记载
     ;
 
 -- 角色权限：装备代表 – 高中
@@ -4624,6 +4670,11 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
      ('1889157618812035076',	'1666258199679991810',	'2025021004066870353',	NULL,	'2025-02-11 11:40:50',	'127.0.0.1'),
      ('1889157618816229378',	'1666258199679991810',	'2025021004066870354',	NULL,	'2025-02-11 11:40:50',	'127.0.0.1'),
      ('1889157618816229379',	'1666258199679991810',	'2025021004066870355',	NULL,	'2025-02-11 11:40:50',	'127.0.0.1')
+    ,('1889851731450458113',	'1666258199679991810',	'2025021211517690101',	NULL,	'2025-02-13 09:38:59',	'127.0.0.1'),               -- 实验教学记载
+     ('1889851731530149890',	'1666258199679991810',	'2025021211517690102',	NULL,	'2025-02-13 09:38:59',	'127.0.0.1'),
+     ('1889851731534344193',	'1666258199679991810',	'2025021211517690103',	NULL,	'2025-02-13 09:38:59',	'127.0.0.1'),
+     ('1889851731534344194',	'1666258199679991810',	'2025021211517690104',	NULL,	'2025-02-13 09:38:59',	'127.0.0.1'),
+     ('1889851731538538497',	'1666258199679991810',	'2025021211517690105',	NULL,	'2025-02-13 09:38:59',	'127.0.0.1')
      ;
 
 -- 角色权限：装备代表 – 初中
@@ -4759,6 +4810,11 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
      ('1889159742539145218',	'1666258199700963330',	'2025021004066870353',	NULL,	'2025-02-11 11:49:16',	'127.0.0.1'),
      ('1889159742543339521',	'1666258199700963330',	'2025021004066870354',	NULL,	'2025-02-11 11:49:16',	'127.0.0.1'),
      ('1889159742543339522',	'1666258199700963330',	'2025021004066870355',	NULL,	'2025-02-11 11:49:16',	'127.0.0.1')
+    ,('1889850553777975297',	'1666258199700963330',	'2025021211517690101',	NULL,	'2025-02-13 09:34:18',	'127.0.0.1'),               -- 实验教学记载
+     ('1889850553794752513',	'1666258199700963330',	'2025021211517690102',	NULL,	'2025-02-13 09:34:18',	'127.0.0.1'),
+     ('1889850553798946818',	'1666258199700963330',	'2025021211517690103',	NULL,	'2025-02-13 09:34:18',	'127.0.0.1'),
+     ('1889850553803141122',	'1666258199700963330',	'2025021211517690104',	NULL,	'2025-02-13 09:34:18',	'127.0.0.1'),
+     ('1889850553803141123',	'1666258199700963330',	'2025021211517690105',	NULL,	'2025-02-13 09:34:18',	'127.0.0.1')
      ;
 
 -- 角色权限：装备代表 – 小学
@@ -4874,6 +4930,11 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
      ('1889146312679727105',	'1666258199717740546',	'2025021004066870353',	NULL,	'2025-02-11 10:55:54',	'127.0.0.1'),
      ('1889146312683921410',	'1666258199717740546',	'2025021004066870354',	NULL,	'2025-02-11 10:55:54',	'127.0.0.1'),
      ('1889146312688115714',	'1666258199717740546',	'2025021004066870355',	NULL,	'2025-02-11 10:55:54',	'127.0.0.1')
+    ,('1889849030482259970',	'1666258199717740546',	'2025021211517690101',	NULL,	'2025-02-13 09:28:15',	'127.0.0.1'),               -- 实验教学记载
+     ('1889849030566146050',	'1666258199717740546',	'2025021211517690102',	NULL,	'2025-02-13 09:28:15',	'127.0.0.1'),
+     ('1889849030591311874',	'1666258199717740546',	'2025021211517690103',	NULL,	'2025-02-13 09:28:15',	'127.0.0.1'),
+     ('1889849030591311875',	'1666258199717740546',	'2025021211517690104',	NULL,	'2025-02-13 09:28:15',	'127.0.0.1'),
+     ('1889849030599700482',	'1666258199717740546',	'2025021211517690105',	NULL,	'2025-02-13 09:28:15',	'127.0.0.1')
      ;
 
 -- 角色权限：装备代表 – 幼儿园
@@ -5120,11 +5181,16 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
 
 -- 角色数据权限：学校方仅能看到本校的数据（教育装备应用相关）
 INSERT INTO `sys_permission_data_rule` (`id`, `permission_id`, `rule_name`, `rule_column`, `rule_conditions`, `rule_value`, `status`, `create_time`, `create_by`, `update_time`, `update_by`) VALUES
-    ('1889144081062535169',	'2025021004066860350',	'学校仅能看到本校的数据#实验教学计划',	'createBy',	'=',	'#{sys_user_code}',	'1',	'2025-02-11 10:47:02',	'admin',	NULL,	NULL);
+    ('1889144081062535169',	'2025021004066860350',	'学校仅能看到本校的数据#实验教学计划',	'createBy',	'=',	'#{sys_user_code}',	'1',	'2025-02-11 10:47:02',	'admin',	NULL,	NULL)
+   ,('1889844175717986305',	'2025021211517690100',	'学校仅能看到本校的数据#实验教学记载',	'createBy',	'=',	'#{sys_user_code}',	'1',	'2025-02-13 09:08:58',	'admin',	NULL,	NULL)
+    ;
 INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_ids`, `operate_date`, `operate_ip`) VALUES
     ('1889157618812035073',	'1666258199679991810',	'2025021004066860350',	'1889144081062535169',	'2025-02-11 11:40:50',	'127.0.0.1'),                   -- 高中 & #实验教学计划
     ('1889159742513979394',	'1666258199700963330',	'2025021004066860350',	'1889144081062535169',	'2025-02-11 11:49:16',	'127.0.0.1'),                   -- 初中
     ('1889146212800765953',	'1666258199717740546',	'2025021004066860350',	'1889144081062535169',	'2025-02-11 10:55:30',	'127.0.0.1')                    -- 小学
+   ,('1889851680015708162',	'1666258199679991810',	'2025021211517690100',	'1889844175717986305',	'2025-02-13 09:38:47',	'127.0.0.1'),                   -- 高中 & #实验教学记载
+    ('1889850506654969857',	'1666258199700963330',	'2025021211517690100',	'1889844175717986305',	'2025-02-13 09:34:07',	'127.0.0.1'),                   -- 初中
+    ('1889848963369201665',	'1666258199717740546',	'2025021211517690100',	'1889844175717986305',	'2025-02-13 09:27:59',	'127.0.0.1')                    -- 小学
     ;
 
 -- 字段列显示控制（目前框架采用的vben似乎不支持对列编辑的控制，故简单在前段硬编码控制）
@@ -5435,5 +5501,7 @@ truncate js_art_equipment_file;
 truncate js_music_equipment_file;
 truncate js_sport_equipment_file;
 truncate monthly_doc_of_chemical_hazards;
+truncate experimental_teaching_plan;
+truncate experimental_teaching_records;
 delete from sys_user_role where user_id in (select id from sys_user where username in ('admin_bbzx', 'admin_bbxx', 'admin_zzxx', 'admin_syz', 'admin_jgyey'));
 delete from sys_user where username in ('admin_bbzx', 'admin_bbxx', 'admin_zzxx', 'admin_syz', 'admin_jgyey');
