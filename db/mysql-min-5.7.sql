@@ -3724,6 +3724,142 @@ CREATE TABLE `experimental_teaching_records` (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- --------------------------------------------------------------
+-- Table structure for hazardous_chemical_registration
+-- --------------------------------------------------------------
+DROP TABLE IF EXISTS `hazardous_chemical_registration`;
+CREATE TABLE `hazardous_chemical_registration` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `identification_code` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
+  `sequence_number` varchar(32) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '序号',
+  `drug_name` varchar(60) COLLATE utf8mb4_general_ci NOT NULL COMMENT '药品名称',
+  `unit` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '单位',
+  `quantity_in_stock` double NOT NULL COMMENT '库存数量',
+  `storage_place` longtext COLLATE utf8mb4_general_ci NOT NULL COMMENT '存放地点',
+  `create_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime DEFAULT NULL COMMENT '更新日期',
+  `sys_org_code` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '所属部门',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- --------------------------------------------------------------
+-- Table structure for hazardous_chemical_use_record
+-- --------------------------------------------------------------
+DROP TABLE IF EXISTS `hazardous_chemical_use_record`;
+CREATE TABLE `hazardous_chemical_use_record` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `identification_code` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
+  `collection_date` date NOT NULL COMMENT '领取日期',
+  `drug_name` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '药品名称',
+  `drug_use` longtext COLLATE utf8mb4_general_ci NOT NULL COMMENT '药品用途',
+  `unit_of_usage` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '用量单位',
+  `quantity_claimed` double NOT NULL COMMENT '领取数量',
+  `receiptor` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '领取人',
+  `return_date` date DEFAULT NULL COMMENT '剩余药品返回日期',
+  `quantity_returned` double DEFAULT NULL COMMENT '剩余药品返回数量',
+  `disposal_method` longtext COLLATE utf8mb4_general_ci COMMENT '剩余药品返回处理方法',
+  `create_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime DEFAULT NULL COMMENT '更新日期',
+  `sys_org_code` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '所属部门',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- --------------------------------------------------------------
+-- Table structure for instrument_borrowing_and_returning
+-- --------------------------------------------------------------
+DROP TABLE IF EXISTS `instrument_borrowing_and_returning`;
+CREATE TABLE `instrument_borrowing_and_returning` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `identification_code` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
+  `borrowing_time` date NOT NULL COMMENT '借用时间',
+  `instrument_name_and_model` varchar(60) COLLATE utf8mb4_general_ci NOT NULL COMMENT '仪器名称及型号',
+  `quantity` int NOT NULL COMMENT '数量',
+  `purpose` varchar(60) COLLATE utf8mb4_general_ci NOT NULL COMMENT '用途',
+  `borrower` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '借用人',
+  `date_of_return` date DEFAULT NULL COMMENT '归还日期',
+  `recipient` varchar(32) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '签收人',
+  `notes` varchar(60) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '备注',
+  `create_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime DEFAULT NULL COMMENT '更新日期',
+  `sys_org_code` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '所属部门',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- --------------------------------------------------------------
+-- Table structure for instrument_damage_record
+-- --------------------------------------------------------------
+DROP TABLE IF EXISTS `instrument_damage_record`;
+CREATE TABLE `instrument_damage_record` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `identification_code` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
+  `date_of_damage` date NOT NULL COMMENT '损坏日期',
+  `damaged_instrument_class` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '损坏仪器班级',
+  `person_damaged_the_instrument` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '损坏仪器人姓名',
+  `damaged_instrument` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '损坏仪器名称',
+  `unit` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '损坏仪器单位',
+  `unit_price` double(10,2) NOT NULL COMMENT '损坏仪器单价',
+  `quantity` double(10,2) NOT NULL COMMENT '损坏仪器数量',
+  `amount` double(10,2) NOT NULL COMMENT '损坏仪器金额',
+  `damage_cause` text COLLATE utf8mb4_general_ci NOT NULL COMMENT '损坏（丢失）及其原因',
+  `operator` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '经手人',
+  `claim_record` text COLLATE utf8mb4_general_ci COMMENT '赔偿记录',
+  `create_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime DEFAULT NULL COMMENT '更新日期',
+  `sys_org_code` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '所属部门',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- --------------------------------------------------------------
+-- Table structure for information_technology_course_teaching
+-- --------------------------------------------------------------
+DROP TABLE IF EXISTS `information_technology_course_teaching`;
+CREATE TABLE `information_technology_course_teaching` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `identification_code` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
+  `course_date` date NOT NULL COMMENT '日期',
+  `section` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '节次',
+  `class` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '班级',
+  `topic` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '课题',
+  `coach` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '执教者',
+  `recorder` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '记录人',
+  `note` text COLLATE utf8mb4_general_ci COMMENT '备注',
+  `create_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime DEFAULT NULL COMMENT '更新日期',
+  `sys_org_code` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '所属部门',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- --------------------------------------------------------------
+-- Table structure for fusion_of_subjects
+-- --------------------------------------------------------------
+DROP TABLE IF EXISTS `fusion_of_subjects`;
+CREATE TABLE `fusion_of_subjects` (
+  `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
+  `identification_code` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
+  `course_date` date NOT NULL COMMENT '日期',
+  `section` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '节次',
+  `subject` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学科',
+  `content` longtext COLLATE utf8mb4_general_ci NOT NULL COMMENT '内容',
+  `style` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '方式',
+  `coach` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '执教',
+  `create_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime DEFAULT NULL COMMENT '更新日期',
+  `sys_org_code` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '所属部门',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- --------------------------------------------------------------
 -- Dict increase data
 -- --------------------------------------------------------------
 INSERT INTO `sys_dict` (id,dict_name,dict_code,description,del_flag,create_by,create_time,update_by,update_time,`type`,tenant_id,low_app_id) VALUES
@@ -3857,6 +3993,7 @@ INSERT INTO sys_permission(id, parent_id, name, url, component, component_name, 
    ,('2024100815260010010', '1666282632293515286', '资源配置统计', '/edu/deploypment/infoOfDeploymentList', 'edu/deployment/InfoOfDeploymentList', NULL, NULL, 1, NULL, '1', 1.00, 0, 'ant-design:account-book-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2024-10-08 17:05:29', NULL, NULL, 0)
    ,('2025021004066860350', '1666282632293519122', '实验教学计划', '/edu/practice/experimentalTeachingPlanList', 'edu/practice/ExperimentalTeachingPlanList', NULL, NULL, 0, NULL, '1', 1.00, 0, 'ant-design:clock-circle-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2025-02-10 16:06:35', NULL, NULL, 0)
    ,('2025021211517690100', '1666282632293519122', '实验教学记载', '/edu/practice/experimentalTeachingRecordsList', 'edu/practice/ExperimentalTeachingRecordsList', NULL, NULL, 0, NULL, '1', 2.00, 0, 'ant-design:appstore-add-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0)
+   ,('2025021400411520210', '1666282632293519122', '危化品登记', '/edu/practice/hazardousChemicalRegistrationList', 'edu/practice/HazardousChemicalRegistrationList', NULL, NULL, 0, NULL, '1', 3.00, 0, 'ant-design:fire-outlined', 1, 0, 0, 0, 0, NULL, '1', 0, 0, 'admin', '2025-02-14 16:11:21', NULL, NULL, 0)
     ;
 
 INSERT INTO sys_permission(id, parent_id, name, url, component, is_route, component_name, redirect, menu_type, perms, perms_type, sort_no, always_show, icon, is_leaf, keep_alive, hidden, hide_tab, description, create_by, create_time, update_by, update_time, del_flag, rule_flag, status, internal_or_external) VALUES
@@ -4124,6 +4261,12 @@ INSERT INTO sys_permission(id, parent_id, name, url, component, is_route, compon
     ('2025021211517690104', '2025021211517690100', '批量删除实验教学记载', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_records:deleteBatch', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0, 0, '1', 0),
     ('2025021211517690105', '2025021211517690100', '导出excel_实验教学记载', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_records:exportXls', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0, 0, '1', 0),
     ('2025021211517690106', '2025021211517690100', '导入excel_实验教学记载', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:experimental_teaching_records:importExcel', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-12 11:51:10', NULL, NULL, 0, 0, '1', 0)
+   ,('2025021400411530211', '2025021400411520210', '添加危化品登记', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:hazardous_chemical_registration:add', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-14 16:11:21', NULL, NULL, 0, 0, '1', 0),
+    ('2025021400411530212', '2025021400411520210', '编辑危化品登记', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:hazardous_chemical_registration:edit', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-14 16:11:21', NULL, NULL, 0, 0, '1', 0),
+    ('2025021400411530213', '2025021400411520210', '删除危化品登记', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:hazardous_chemical_registration:delete', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-14 16:11:21', NULL, NULL, 0, 0, '1', 0),
+    ('2025021400411530214', '2025021400411520210', '批量删除危化品登记', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:hazardous_chemical_registration:deleteBatch', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-14 16:11:21', NULL, NULL, 0, 0, '1', 0),
+    ('2025021400411530215', '2025021400411520210', '导出excel_危化品登记', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:hazardous_chemical_registration:exportXls', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-14 16:11:21', NULL, NULL, 0, 0, '1', 0),
+    ('2025021400411530216', '2025021400411520210', '导入excel_危化品登记', NULL, NULL, 0, NULL, NULL, 2, 'edu.practice:hazardous_chemical_registration:importExcel', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2025-02-14 16:11:21', NULL, NULL, 0, 0, '1', 0)
     ;
 
 -- 角色权限：系统管理员
@@ -4474,6 +4617,7 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
     ,('1889225764981891074',	'1666258199747100674',	'1666282632293519122',	NULL,	'2025-02-11 16:11:37',	'127.0.0.1'),               -- 教育装备应用
      ('1889225765007056897',	'1666258199747100674',	'2025021004066860350',	NULL,	'2025-02-11 16:11:37',	'127.0.0.1')                -- 实验教学计划
     ,('1889845561969012738',	'1666258199747100674',	'2025021211517690100',	NULL,	'2025-02-13 09:14:28',	'127.0.0.1')                -- 实验教学记载
+    ,('1890342693306015745',	'1666258199747100674',	'2025021400411520210',	NULL,	'2025-02-14 18:09:54',	'127.0.0.1')                -- 危化品登记
      ;
 
 -- 角色权限：装备中心 – 装备管理检查
@@ -4583,6 +4727,7 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
    ,('1889224906726629378',	'1698620226046316546',	'1666282632293519122',	NULL,	'2025-02-11 16:08:12',	'127.0.0.1'),               -- 教育装备应用
     ('1889224906823098369',	'1698620226046316546',	'2025021004066860350',	NULL,	'2025-02-11 16:08:12',	'127.0.0.1')                -- 实验教学计划
    ,('1889848547394908161',	'1698620226046316546',	'2025021211517690100',	NULL,	'2025-02-13 09:26:20',	'127.0.0.1')                -- 实验教学记载
+   ,('1890343259054710786',	'1698620226046316546',	'2025021400411520210',	NULL,	'2025-02-14 18:12:08',	'127.0.0.1')                -- 危化品登记
     ;
 
 -- 角色权限：装备代表 – 高中
@@ -4675,6 +4820,11 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
      ('1889851731534344193',	'1666258199679991810',	'2025021211517690103',	NULL,	'2025-02-13 09:38:59',	'127.0.0.1'),
      ('1889851731534344194',	'1666258199679991810',	'2025021211517690104',	NULL,	'2025-02-13 09:38:59',	'127.0.0.1'),
      ('1889851731538538497',	'1666258199679991810',	'2025021211517690105',	NULL,	'2025-02-13 09:38:59',	'127.0.0.1')
+    ,('1890343683144982529',	'1666258199679991810',	'2025021400411530211',	NULL,	'2025-02-14 18:13:50',	'127.0.0.1'),               -- 危化品登记
+     ('1890343683161759746',	'1666258199679991810',	'2025021400411530212',	NULL,	'2025-02-14 18:13:50',	'127.0.0.1'),
+     ('1890343683165954049',	'1666258199679991810',	'2025021400411530213',	NULL,	'2025-02-14 18:13:50',	'127.0.0.1'),
+     ('1890343683170148353',	'1666258199679991810',	'2025021400411530214',	NULL,	'2025-02-14 18:13:50',	'127.0.0.1'),
+     ('1890343683174342658',	'1666258199679991810',	'2025021400411530215',	NULL,	'2025-02-14 18:13:50',	'127.0.0.1')
      ;
 
 -- 角色权限：装备代表 – 初中
@@ -4815,6 +4965,11 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
      ('1889850553798946818',	'1666258199700963330',	'2025021211517690103',	NULL,	'2025-02-13 09:34:18',	'127.0.0.1'),
      ('1889850553803141122',	'1666258199700963330',	'2025021211517690104',	NULL,	'2025-02-13 09:34:18',	'127.0.0.1'),
      ('1889850553803141123',	'1666258199700963330',	'2025021211517690105',	NULL,	'2025-02-13 09:34:18',	'127.0.0.1')
+    ,('1890345650382610434',	'1666258199700963330',	'2025021400411530211',	NULL,	'2025-02-14 18:21:39',	'127.0.0.1'),               -- 危化品登记
+     ('1890345650390999042',	'1666258199700963330',	'2025021400411530212',	NULL,	'2025-02-14 18:21:39',	'127.0.0.1'),
+     ('1890345650390999043',	'1666258199700963330',	'2025021400411530213',	NULL,	'2025-02-14 18:21:39',	'127.0.0.1'),
+     ('1890345650395193345',	'1666258199700963330',	'2025021400411530214',	NULL,	'2025-02-14 18:21:39',	'127.0.0.1'),
+     ('1890345650395193346',	'1666258199700963330',	'2025021400411530215',	NULL,	'2025-02-14 18:21:39',	'127.0.0.1')
      ;
 
 -- 角色权限：装备代表 – 小学
@@ -4935,6 +5090,11 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
      ('1889849030591311874',	'1666258199717740546',	'2025021211517690103',	NULL,	'2025-02-13 09:28:15',	'127.0.0.1'),
      ('1889849030591311875',	'1666258199717740546',	'2025021211517690104',	NULL,	'2025-02-13 09:28:15',	'127.0.0.1'),
      ('1889849030599700482',	'1666258199717740546',	'2025021211517690105',	NULL,	'2025-02-13 09:28:15',	'127.0.0.1')
+    ,('1890346875115184129',	'1666258199717740546',	'2025021400411530211',	NULL,	'2025-02-14 18:26:31',	'127.0.0.1'),               -- 危化品登记
+     ('1890346875152932866',	'1666258199717740546',	'2025021400411530212',	NULL,	'2025-02-14 18:26:31',	'127.0.0.1'),
+     ('1890346875157127170',	'1666258199717740546',	'2025021400411530213',	NULL,	'2025-02-14 18:26:31',	'127.0.0.1'),
+     ('1890346875161321473',	'1666258199717740546',	'2025021400411530214',	NULL,	'2025-02-14 18:26:31',	'127.0.0.1'),
+     ('1890346875161321474',	'1666258199717740546',	'2025021400411530215',	NULL,	'2025-02-14 18:26:31',	'127.0.0.1')
      ;
 
 -- 角色权限：装备代表 – 幼儿园
@@ -5183,6 +5343,7 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
 INSERT INTO `sys_permission_data_rule` (`id`, `permission_id`, `rule_name`, `rule_column`, `rule_conditions`, `rule_value`, `status`, `create_time`, `create_by`, `update_time`, `update_by`) VALUES
     ('1889144081062535169',	'2025021004066860350',	'学校仅能看到本校的数据#实验教学计划',	'createBy',	'=',	'#{sys_user_code}',	'1',	'2025-02-11 10:47:02',	'admin',	NULL,	NULL)
    ,('1889844175717986305',	'2025021211517690100',	'学校仅能看到本校的数据#实验教学记载',	'createBy',	'=',	'#{sys_user_code}',	'1',	'2025-02-13 09:08:58',	'admin',	NULL,	NULL)
+   ,('1890341355495006210',	'2025021400411520210',	'学校仅能看到本校的数据#危化品登记',	'createBy',	'=',	'#{sys_user_code}',	'1',	'2025-02-14 18:04:34',	'admin',	NULL,	NULL)
     ;
 INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_ids`, `operate_date`, `operate_ip`) VALUES
     ('1889157618812035073',	'1666258199679991810',	'2025021004066860350',	'1889144081062535169',	'2025-02-11 11:40:50',	'127.0.0.1'),                   -- 高中 & #实验教学计划
@@ -5191,6 +5352,9 @@ INSERT INTO `sys_role_permission` (`id`, `role_id`, `permission_id`, `data_rule_
    ,('1889851680015708162',	'1666258199679991810',	'2025021211517690100',	'1889844175717986305',	'2025-02-13 09:38:47',	'127.0.0.1'),                   -- 高中 & #实验教学记载
     ('1889850506654969857',	'1666258199700963330',	'2025021211517690100',	'1889844175717986305',	'2025-02-13 09:34:07',	'127.0.0.1'),                   -- 初中
     ('1889848963369201665',	'1666258199717740546',	'2025021211517690100',	'1889844175717986305',	'2025-02-13 09:27:59',	'127.0.0.1')                    -- 小学
+   ,('1890343628648390657',	'1666258199679991810',	'2025021400411520210',	'1890341355495006210',	'2025-02-14 18:13:37',	'127.0.0.1'),                   -- 高中 & #危化品登记
+    ('1890345599304376321',	'1666258199700963330',	'2025021400411520210',	'1890341355495006210',	'2025-02-14 18:21:26',	'127.0.0.1'),                   -- 初中
+    ('1890346818710183938',	'1666258199717740546',	'2025021400411520210',	'1890341355495006210',	'2025-02-14 18:26:17',	'127.0.0.1')                    -- 小学
     ;
 
 -- 字段列显示控制（目前框架采用的vben似乎不支持对列编辑的控制，故简单在前段硬编码控制）
