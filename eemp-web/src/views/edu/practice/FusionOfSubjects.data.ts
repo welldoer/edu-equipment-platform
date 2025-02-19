@@ -29,29 +29,24 @@ export const columns: BasicColumn[] = [
     dataIndex: 'section'
    },
    {
-    title: '班级',
+    title: '学科',
     align:"center",
-    dataIndex: 'clbum'
+    dataIndex: 'subject'
    },
    {
-    title: '课题',
+    title: '内容',
     align:"center",
-    dataIndex: 'topic'
+    dataIndex: 'content'
    },
    {
-    title: '执教者',
+    title: '方式',
+    align:"center",
+    dataIndex: 'style'
+   },
+   {
+    title: '执教',
     align:"center",
     dataIndex: 'coach'
-   },
-   {
-    title: '记录人',
-    align:"center",
-    dataIndex: 'recorder'
-   },
-   {
-    title: '备注',
-    align:"center",
-    dataIndex: 'note'
    },
 ];
 //查询数据
@@ -66,19 +61,13 @@ export const searchFormSchema: FormSchema[] = [
       colProps: {span: 6},
  	},
 	{
-      label: "班级",
-      field: 'clbum',
+      label: "学科",
+      field: 'subject',
       component: 'Input',
       colProps: {span: 6},
  	},
 	{
-      label: "课题",
-      field: 'topic',
-      component: 'Input',
-      colProps: {span: 6},
- 	},
-	{
-      label: "执教者",
+      label: "执教",
       field: 'coach',
       component: 'Input',
       colProps: {span: 6},
@@ -122,49 +111,44 @@ export const formSchema: FormSchema[] = [
      },
   },
   {
-    label: '班级',
-    field: 'clbum',
+    label: '学科',
+    field: 'subject',
     component: 'Input',
     dynamicRules: ({model,schema}) => {
           return [
-                 { required: true, message: '请输入班级!'},
+                 { required: true, message: '请输入学科!'},
           ];
      },
   },
   {
-    label: '课题',
-    field: 'topic',
-    component: 'Input',
+    label: '内容',
+    field: 'content',
+    component: 'InputTextArea',
     dynamicRules: ({model,schema}) => {
           return [
-                 { required: true, message: '请输入课题!'},
+                 { required: true, message: '请输入内容!'},
           ];
      },
   },
   {
-    label: '执教者',
+    label: '方式',
+    field: 'style',
+    component: 'Input',
+    dynamicRules: ({model,schema}) => {
+          return [
+                 { required: true, message: '请输入方式!'},
+          ];
+     },
+  },
+  {
+    label: '执教',
     field: 'coach',
     component: 'Input',
     dynamicRules: ({model,schema}) => {
           return [
-                 { required: true, message: '请输入执教者!'},
+                 { required: true, message: '请输入执教!'},
           ];
      },
-  },
-  {
-    label: '记录人',
-    field: 'recorder',
-    component: 'Input',
-    dynamicRules: ({model,schema}) => {
-          return [
-                 { required: true, message: '请输入记录人!'},
-          ];
-     },
-  },
-  {
-    label: '备注',
-    field: 'note',
-    component: 'InputTextArea',
   },
 	// TODO 主键隐藏字段，目前写死为ID
 	{
