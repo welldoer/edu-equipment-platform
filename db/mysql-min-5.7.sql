@@ -3684,9 +3684,9 @@ DROP TABLE IF EXISTS `experimental_teaching_plan`;
 CREATE TABLE `experimental_teaching_plan` (
   `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
   `identification_code` varchar(18) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
-  `sequence_number` varchar(32) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '序号',
   `experiment_name` varchar(128) COLLATE utf8mb4_general_ci NOT NULL COMMENT '实验名称',
-  `planning_time` date NOT NULL COMMENT '实验计划时间',
+  `planning_time` int NOT NULL COMMENT '实验时间',
+  `task_number` int NOT NULL COMMENT '实验次数',
   `exact_form` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '实验形式',
   `create_by` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '创建人',
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
@@ -4474,13 +4474,13 @@ INSERT INTO `edu_informatization_equip_info_8` (`id`, `identification_code`, `fi
 INSERT INTO `filling_control` (`id`, `control_type`, `control_name`, `start_date`, `end_date`, `check_start_date`, `check_end_date`, `school_list`, `memo`, `create_by`, `create_time`, `update_by`, `update_time`, `sys_org_code`) VALUES
     ('1705147748615184385',	'01',	'2023下半年填报',	'2023-09-01',	'2023-09-30',	'2023-10-01',	'2023-10-15',	'1232002606',	NULL,	'admin',	'2023-09-22 17:11:18',	NULL,	NULL,	'A01');
 
-INSERT INTO `experimental_teaching_plan` (`id`, `identification_code`, `sequence_number`, `experiment_name`, `planning_time`, `exact_form`, `create_by`, `create_time`, `update_by`, `update_time`, `sys_org_code`) VALUES
-    ('1889254308495695873',	'5262003028',	NULL,	'一中#2',	'2025-02-20',	'2',	'admin_syz',	'2025-02-11 18:05:02',	NULL,	NULL,	'A01'),
-    ('1889254596166230018',	'2142009669',	NULL,	'八小#1',	'2025-02-19',	'1',	'admin_bbxx',	'2025-02-11 18:06:11',	NULL,	NULL,	'A01'),
-    ('1889254659617660929',	'2142009669',	NULL,	'八小#2',	'2025-02-22',	'2',	'admin_bbxx',	'2025-02-11 18:06:26',	NULL,	NULL,	'A01'),
-    ('1889255012216020993',	'3142007024',	NULL,	'八初#1',	'2025-02-18',	'1',	'admin_bbzx',	'2025-02-11 18:07:50',	NULL,	NULL,	'A01'),
-    ('1889255079471685634',	'3142007024',	NULL,	'八初#2',	'2025-02-26',	'2',	'admin_bbzx',	'2025-02-11 18:08:06',	NULL,	NULL,	'A01'),
-    ('1889261464313864193',	'5262003028',	NULL,	'一种#1',	'2025-02-12',	'1',	'admin_syz',	'2025-02-11 18:33:29',	NULL,	NULL,	'A01')
+INSERT INTO `experimental_teaching_plan` (`id`, `identification_code`, `experiment_name`, `planning_time`, `task_number`, `exact_form`, `create_by`, `create_time`, `update_by`, `update_time`, `sys_org_code`) VALUES
+    ('1889254308495695873',	'5262003028',	'一中#2',	'6',    '2',	'2',	'admin_syz',	'2025-02-11 18:05:02',	NULL,	NULL,	'A01'),
+    ('1889254596166230018',	'2142009669',	'八小#1',	'2',    '3',	'1',	'admin_bbxx',	'2025-02-11 18:06:11',	NULL,	NULL,	'A01'),
+    ('1889254659617660929',	'2142009669',	'八小#2',	'8',    '1',	'2',	'admin_bbxx',	'2025-02-11 18:06:26',	NULL,	NULL,	'A01'),
+    ('1889255012216020993',	'3142007024',	'八初#1',	'8',    '2',	'1',	'admin_bbzx',	'2025-02-11 18:07:50',	NULL,	NULL,	'A01'),
+    ('1889255079471685634',	'3142007024',	'八初#2',	'16',	'1',    '2',	'admin_bbzx',	'2025-02-11 18:08:06',	NULL,	NULL,	'A01'),
+    ('1889261464313864193',	'5262003028',	'一中#1',	'2',    '2',	'1',	'admin_syz',	'2025-02-11 18:33:29',	NULL,	NULL,	'A01')
     ;
 
 

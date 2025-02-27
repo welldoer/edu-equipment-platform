@@ -36,20 +36,18 @@ public class ExperimentalTeachingPlan implements Serializable {
     @Dict(dictTable = "organization_definition", dicText = "institution_name", dicCode = "identification_code")
     @ApiModelProperty(value = "学校名称")
     private java.lang.String identificationCode;
-	/**序号*/
-	@Excel(name = "序号", width = 15)
-    @ApiModelProperty(value = "序号")
-    private java.lang.String sequenceNumber;
 	/**实验名称*/
 	@Excel(name = "实验名称", width = 15)
     @ApiModelProperty(value = "实验名称")
     private java.lang.String experimentName;
-	/**实验计划时间*/
-	@Excel(name = "实验计划时间", width = 15, format = "yyyy-MM-dd")
-	@JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @ApiModelProperty(value = "实验计划时间")
-    private java.util.Date planningTime;
+    /**实验时间*/
+    @Excel(name = "实验时间", width = 15)
+    @ApiModelProperty(value = "实验时间")
+    private java.lang.Integer planningTime;
+    /**实验次数*/
+    @Excel(name = "实验次数", width = 15)
+    @ApiModelProperty(value = "实验次数")
+    private java.lang.Integer taskNumber;
 	/**实验形式*/
 	@Excel(name = "实验形式", width = 15, dicCode = "experimental_form")
 	@Dict(dicCode = "experimental_form")

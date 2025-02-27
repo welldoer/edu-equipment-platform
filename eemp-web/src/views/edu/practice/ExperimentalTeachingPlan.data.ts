@@ -16,22 +16,19 @@ export const columns: BasicColumn[] = [
     auth: 'auth-column-school-name',
    },
    {
-    title: '序号',
-    align:"center",
-    dataIndex: 'sequenceNumber'
-   },
-   {
     title: '实验名称',
     align:"center",
     dataIndex: 'experimentName'
    },
    {
-    title: '实验计划时间',
+    title: '实验时间',
     align:"center",
-    dataIndex: 'planningTime',
-    customRender:({text}) =>{
-      return !text?"":(text.length>10?text.substr(0,10):text)
-    },
+    dataIndex: 'planningTime'
+   },
+   {
+    title: '实验次数',
+    align:"center",
+    dataIndex: 'taskNumber'
    },
    {
     title: '实验形式',
@@ -56,15 +53,6 @@ export const searchFormSchema: FormSchema[] = [
       component: 'Input',
       colProps: {span: 6},
  	},
-     {
-      label: "实验计划时间",
-      field: "planningTime",
-      component: 'RangePicker',
-      componentProps: {
-          valueType: 'Date',
-      },
-      colProps: {span: 6},
-	},
 	{
       label: "实验形式",
       field: 'exactForm',
@@ -93,11 +81,6 @@ export const formSchema: FormSchema[] = [
      dynamicDisabled:true
   },
   {
-    label: '序号',
-    field: 'sequenceNumber',
-    component: 'Input',
-  },
-  {
     label: '实验名称',
     field: 'experimentName',
     component: 'Input',
@@ -108,12 +91,27 @@ export const formSchema: FormSchema[] = [
      },
   },
   {
-    label: '实验计划时间',
+    label: '实验时间',
     field: 'planningTime',
-    component: 'DatePicker',
+    component: 'InputNumber',
+    componentProps:{
+        placeholder: '请输入实验对应周次',
+    },
     dynamicRules: ({model,schema}) => {
           return [
-                 { required: true, message: '请输入实验计划时间!'},
+                 { required: true, message: '请输入实验对应周次!'},
+                 { pattern: /^\d+$/, message: '请输入非负整数!'},
+          ];
+     },
+  },
+  {
+    label: '实验次数',
+    field: 'taskNumber',
+    component: 'InputNumber',
+    dynamicRules: ({model,schema}) => {
+          return [
+                 { required: true, message: '请输入实验次数!'},
+                 { pattern: /^\d+$/, message: '请输入非负整数!'},
           ];
      },
   },
