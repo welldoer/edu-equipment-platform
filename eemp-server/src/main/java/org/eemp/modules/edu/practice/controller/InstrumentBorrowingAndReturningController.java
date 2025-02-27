@@ -144,6 +144,7 @@ public class InstrumentBorrowingAndReturningController extends BaseController<In
     */
     @RequiresPermissions("edu.practice:instrument_borrowing_and_returning:exportXls")
     @RequestMapping(value = "/exportXls")
+	@PermissionData(pageComponent = "edu/practice/InstrumentBorrowingAndReturningList")
     public ModelAndView exportXls(HttpServletRequest request, InstrumentBorrowingAndReturning instrumentBorrowingAndReturning) {
         return super.exportXls(request, instrumentBorrowingAndReturning, InstrumentBorrowingAndReturning.class, "仪器借还");
     }

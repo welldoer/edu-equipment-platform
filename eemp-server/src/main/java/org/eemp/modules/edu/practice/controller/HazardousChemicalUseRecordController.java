@@ -144,6 +144,7 @@ public class HazardousChemicalUseRecordController extends BaseController<Hazardo
     */
     @RequiresPermissions("edu.practice:hazardous_chemical_use_record:exportXls")
     @RequestMapping(value = "/exportXls")
+	@PermissionData(pageComponent = "edu/practice/HazardousChemicalUseRecordList")
     public ModelAndView exportXls(HttpServletRequest request, HazardousChemicalUseRecord hazardousChemicalUseRecord) {
         return super.exportXls(request, hazardousChemicalUseRecord, HazardousChemicalUseRecord.class, "危化品使用");
     }

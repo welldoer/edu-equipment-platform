@@ -144,6 +144,7 @@ public class InstrumentDamageRecordController extends BaseController<InstrumentD
     */
     @RequiresPermissions("edu.practice:instrument_damage_record:exportXls")
     @RequestMapping(value = "/exportXls")
+	@PermissionData(pageComponent = "edu/practice/InstrumentDamageRecordList")
     public ModelAndView exportXls(HttpServletRequest request, InstrumentDamageRecord instrumentDamageRecord) {
         return super.exportXls(request, instrumentDamageRecord, InstrumentDamageRecord.class, "仪器损坏");
     }

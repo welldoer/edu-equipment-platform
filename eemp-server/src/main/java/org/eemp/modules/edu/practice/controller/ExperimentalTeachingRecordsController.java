@@ -144,6 +144,7 @@ public class ExperimentalTeachingRecordsController extends BaseController<Experi
     */
     @RequiresPermissions("edu.practice:experimental_teaching_records:exportXls")
     @RequestMapping(value = "/exportXls")
+	@PermissionData(pageComponent = "edu/practice/ExperimentalTeachingRecordsList")
     public ModelAndView exportXls(HttpServletRequest request, ExperimentalTeachingRecords experimentalTeachingRecords) {
         return super.exportXls(request, experimentalTeachingRecords, ExperimentalTeachingRecords.class, "实验教学记载");
     }

@@ -144,6 +144,7 @@ public class InformationTechnologyCourseTeachingController extends BaseControlle
     */
     @RequiresPermissions("edu.practice:information_technology_course_teaching:exportXls")
     @RequestMapping(value = "/exportXls")
+	@PermissionData(pageComponent = "edu/practice/InformationTechnologyCourseTeachingList")
     public ModelAndView exportXls(HttpServletRequest request, InformationTechnologyCourseTeaching informationTechnologyCourseTeaching) {
         return super.exportXls(request, informationTechnologyCourseTeaching, InformationTechnologyCourseTeaching.class, "信息课教学");
     }

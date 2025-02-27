@@ -144,6 +144,7 @@ public class FusionOfSubjectsController extends BaseController<FusionOfSubjects,
     */
     @RequiresPermissions("edu.practice:fusion_of_subjects:exportXls")
     @RequestMapping(value = "/exportXls")
+	@PermissionData(pageComponent = "edu/practice/FusionOfSubjectsList")
     public ModelAndView exportXls(HttpServletRequest request, FusionOfSubjects fusionOfSubjects) {
         return super.exportXls(request, fusionOfSubjects, FusionOfSubjects.class, "学科融合");
     }
