@@ -122,7 +122,8 @@ export const formSchema: FormSchema[] = [
     field: 'exactForm',
     component: 'JDictSelectTag',
     componentProps:{
-        dictCode:"experimental_form"
+        dictCode:"experimental_form",
+        type: 'radio',
      },
     dynamicRules: ({model,schema}) => {
           return [

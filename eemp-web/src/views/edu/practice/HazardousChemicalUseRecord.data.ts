@@ -155,6 +155,7 @@ export const formSchema: FormSchema[] = [
     dynamicRules: ({model,schema}) => {
           return [
                  { required: true, message: '请输入领取数量!'},
+                 { pattern: /^\d+\.?\d*$/, message: '请输入非负数!'},
           ];
      },
   },
@@ -177,6 +178,11 @@ export const formSchema: FormSchema[] = [
     label: '剩余药品返回数量',
     field: 'quantityReturned',
     component: 'InputNumber',
+    dynamicRules: ({model,schema}) => {
+          return [
+                 { pattern: /^\d+\.?\d*$/, message: '请输入非负数!'},
+          ];
+     },
   },
   {
     label: '剩余药品返回处理方法',

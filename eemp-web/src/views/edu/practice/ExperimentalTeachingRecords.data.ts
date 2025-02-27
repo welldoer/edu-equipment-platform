@@ -172,7 +172,7 @@ export const formSchema: FormSchema[] = [
     dynamicRules: ({model,schema}) => {
           return [
                  { required: true, message: '请输入学生人数!'},
-                 { pattern: /^-?\d+$/, message: '请输入整数!'},
+                 { pattern: /^\d+$/, message: '请输入非负整数!'},
           ];
      },
   },
@@ -181,7 +181,8 @@ export const formSchema: FormSchema[] = [
     field: 'exactForm',
     component: 'JDictSelectTag',
     componentProps:{
-        dictCode:"experimental_form"
+        dictCode:"experimental_form",
+        type: 'radio',
      },
     dynamicRules: ({model,schema}) => {
           return [
@@ -196,7 +197,7 @@ export const formSchema: FormSchema[] = [
     dynamicRules: ({model,schema}) => {
           return [
                  { required: true, message: '请输入开出组数!'},
-                 { pattern: /^-?\d+$/, message: '请输入整数!'},
+                 { pattern: /^\d+$/, message: '请输入非负整数!'},
           ];
      },
   },

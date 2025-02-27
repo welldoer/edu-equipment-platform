@@ -130,6 +130,7 @@ export const formSchema: FormSchema[] = [
     dynamicRules: ({model,schema}) => {
           return [
                  { required: true, message: '请输入数量!'},
+                 { pattern: /^\d+$/, message: '请输入非负整数!'},
           ];
      },
   },

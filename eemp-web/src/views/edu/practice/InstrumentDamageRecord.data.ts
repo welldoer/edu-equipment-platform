@@ -172,6 +172,7 @@ export const formSchema: FormSchema[] = [
     dynamicRules: ({model,schema}) => {
           return [
                  { required: true, message: '请输入损坏仪器单价!'},
+                 { pattern: /^\d+\.?\d*$/, message: '请输入非负数!'},
           ];
      },
   },
@@ -182,6 +183,7 @@ export const formSchema: FormSchema[] = [
     dynamicRules: ({model,schema}) => {
           return [
                  { required: true, message: '请输入损坏仪器数量!'},
+                 { pattern: /^\d+$/, message: '请输入非负整数!'},
           ];
      },
   },
@@ -192,6 +194,7 @@ export const formSchema: FormSchema[] = [
     dynamicRules: ({model,schema}) => {
           return [
                  { required: true, message: '请输入损坏仪器金额!'},
+                 { pattern: /^\d+\.?\d*$/, message: '请输入非负数!'},
           ];
      },
   },
