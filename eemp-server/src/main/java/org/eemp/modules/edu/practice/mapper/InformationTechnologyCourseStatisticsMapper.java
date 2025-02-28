@@ -1,0 +1,13 @@
+package org.eemp.modules.edu.practice.mapper;
+
+import org.eemp.modules.edu.practice.entity.InformationTechnologyCourseStatistics;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * @Description: 信息教学统计
+ * @Date:   2025-02-28
+ * @Version: V1.0
+ */
+public interface InformationTechnologyCourseStatisticsMapper extends BaseMapper<InformationTechnologyCourseStatistics> {
+
+}
