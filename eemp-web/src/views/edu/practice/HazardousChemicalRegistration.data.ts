@@ -16,11 +16,6 @@ export const columns: BasicColumn[] = [
     auth: 'auth-column-school-name',
    },
    {
-    title: '序号',
-    align:"center",
-    dataIndex: 'sequenceNumber'
-   },
-   {
     title: '药品名称',
     align:"center",
     dataIndex: 'drugName'
@@ -81,11 +76,6 @@ export const formSchema: FormSchema[] = [
           ];
      },
      dynamicDisabled:true
-  },
-  {
-    label: '序号',
-    field: 'sequenceNumber',
-    component: 'Input',
   },
   {
     label: '药品名称',

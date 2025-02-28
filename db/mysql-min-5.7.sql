@@ -3751,7 +3751,6 @@ DROP TABLE IF EXISTS `hazardous_chemical_registration`;
 CREATE TABLE `hazardous_chemical_registration` (
   `id` varchar(36) COLLATE utf8mb4_general_ci NOT NULL,
   `identification_code` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '学校名称',
-  `sequence_number` varchar(32) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '序号',
   `drug_name` varchar(60) COLLATE utf8mb4_general_ci NOT NULL COMMENT '药品名称',
   `unit` varchar(32) COLLATE utf8mb4_general_ci NOT NULL COMMENT '单位',
   `quantity_in_stock` double NOT NULL COMMENT '库存数量',

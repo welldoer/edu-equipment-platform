@@ -36,10 +36,6 @@ public class HazardousChemicalRegistration implements Serializable {
     @Dict(dictTable = "organization_definition", dicText = "institution_name", dicCode = "identification_code")
     @ApiModelProperty(value = "学校名称")
     private String identificationCode;
-	/**序号*/
-	@Excel(name = "序号", width = 15)
-    @ApiModelProperty(value = "序号")
-    private java.lang.String sequenceNumber;
 	/**药品名称*/
 	@Excel(name = "药品名称", width = 15)
     @ApiModelProperty(value = "药品名称")
