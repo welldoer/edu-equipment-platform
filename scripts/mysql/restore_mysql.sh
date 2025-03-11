@@ -19,7 +19,7 @@ INCREMENTAL_END_DATE=$2
 
 # 停止应用服务
 echo "Stopping application services..."
-docker-compose stop eemp-system
+docker compose stop eemp-system
 
 # 恢复完整备份
 echo "Restoring full backup..."
@@ -31,7 +31,7 @@ if [ ! -z "$INCREMENTAL_END_DATE" ]; then
     echo "Restoring incremental backups..."
     for binlog in $(ls $BACKUP_DIR/incremental/binlog_*.sql.gz | sort); do
         BINLOG_DATE=$(echo $binlog | grep -o '[0-9]\{8\}_[0-9]\{6\}')
-        if [ "$BINLOG_DATE" \> "$FULL_BACKUP_DATE" ] && [ "$BINLOG_DATE" \<= "$INCREMENTAL_END_DATE" ]; then
+        if [ "$BINLOG_DATE" \> "$FULL_BACKUP_DATE" ] && [ ! "$BINLOG_DATE" \> "$INCREMENTAL_END_DATE" ]; then
             echo "Applying binlog: $binlog"
             gunzip -c $binlog | \
                 docker exec -i $DOCKER_CONTAINER mysql -u$MYSQL_USER -p$MYSQL_PASSWORD $DATABASE
@@ -41,6 +41,6 @@ fi
 
 # 启动应用服务
 echo "Starting application services..."
-docker-compose start eemp-system
+docker compose start eemp-system
 
 echo "Restore completed!"
