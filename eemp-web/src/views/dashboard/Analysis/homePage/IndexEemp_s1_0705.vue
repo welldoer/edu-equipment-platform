@@ -67,7 +67,7 @@
             <EduLaboiratory :chartData="laboratoryRoomInfo" class="md:w-1/3 !md:mx-4 !md:my-0 !my-4 w-full" :loading="loading" />
             <BarMulti
                 :chartData="libraryInfo"
-                :option="{ title: { text: '图书室统计', textStyle: { fontWeight: 'lighter' } } }"
+                :option="{ title: { text: '图书室统计（面积）', textStyle: { fontWeight: 'lighter' } } }"
                 height="30vh"
               />
           </div>
