@@ -41,9 +41,10 @@ export const searchFormSchema: FormSchema[] = [
 	{
       label: "学校名称",
       field: 'identificationCode',
-      component: 'JDictSelectTag',
+      component: 'JSearchSelect',
       componentProps:{
-          dictCode:"organization_definition,institution_name,identification_code"
+          dict:"organization_definition,institution_name,identification_code",
+          async: true,
       },
       colProps: {span: 6},
  	},
